@@ -1,0 +1,180 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}Impact - Swaniti{% endblock %}
+
+{% block content %}
+<!--start nav hero section -->
+<div class="hero" style="height:98vh;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);position:relative;font-family:'Inter',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:rgba(0,0,0,0.3);z-index:0;"></div>
+  <nav style="position:absolute;top:0;right:0;width:70%!important;background:#FFF;padding:18px 60px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(0,0,0,0.15);border-bottom-left-radius:10px;z-index:1000;transition:.3s ease;">
+    <a href="{% url 'v2:home' %}" style="margin-right:40px;text-decoration:none;color:#c43a30;font-size:24px;font-weight:700;font-family:'Inter',sans-serif;">Swaniti</a>
+    <ul id="menuLinks" style="display:flex;gap:45px;list-style:none;margin:0;padding:0;">
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Centers</a></li>
+      <li><a href="{% url 'v2:about' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">About us</a></li>
+      <li><a href="{% url 'v2:impact' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Impact</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Research and Insights</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Events</a></li>
+    </ul>
+    <div id="toggleBtn" class="hamburger" style="display:none;font-size:30px;cursor:pointer;color:#000;z-index:1010;margin-left:40px;">☰</div>
+  </nav>
+
+  <div class="menu-wrapper">
+    <div class="mega-menu" style="background:#c43a30;color:#FFF;">
+      <div>
+        <h2 style="font-size:32px;margin-bottom:20px;font-weight:700;font-family:'Inter',sans-serif;">Corporate & Impact Partners</h2>
+        <p style="max-width:400px;line-height:1.7;font-size:16px;opacity:.9;font-family:'Inter',sans-serif;">Partner with us to create sustainable projects with measurable results for social good.</p>
+      </div>
+      <div style="display:flex;gap:120px;">
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Inter',sans-serif;">Global Partners</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Inter',sans-serif;">Local Initiatives</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Inter',sans-serif;">CSR Projects</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Inter',sans-serif;">Foundations & Trusts</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Inter',sans-serif;">Social Enterprises</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Inter',sans-serif;">Future Collaborations</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-text" style="position:absolute;bottom:120px;left:100px;color:#FFF;max-width:900px;z-index:10;">
+    <h1 style="font-size:55px;margin-bottom:18px;font-family:'Inter',sans-serif;">Our Impact</h1>
+    <p style="font-size:18px;line-height:1.7;margin-bottom:25px;font-family:'Inter',sans-serif;">Ensuring public services are delivered to the beneficiary at the last mile.</p>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+</div>
+<!--end nav hero section-->
+
+<!-- start impact numbers section here -->
+<section style="background:#FFF;padding:80px 5%;text-align:center;font-family:'Inter',sans-serif;margin-top:-5%;">
+  <h2 style="color:#000;font-size:42px;font-weight:800;margin-bottom:15px;text-transform:uppercase;letter-spacing:3px;">Impact by Numbers</h2>
+  <div style="width:80px;height:4px;background:#c43a30;margin:0 auto 60px;border-radius:2px;"></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1200px;margin:0 auto 50px;">
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #c43a30;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-hand-holding-usd" style="color:#c43a30;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#c43a30;margin-bottom:8px;line-height:1;">165Mn+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Funds Mobilised</div>
+    </div>
+
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #ff7637;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-gavel" style="color:#ff7637;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#ff7637;margin-bottom:8px;line-height:1;">35+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Policies Reformed</div>
+    </div>
+
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #667eea;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-globe-americas" style="color:#667eea;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#667eea;margin-bottom:8px;line-height:1;">8+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Global Countries</div>
+    </div>
+
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #764ba2;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-users" style="color:#764ba2;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#764ba2;margin-bottom:8px;line-height:1;">70+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Global Partners</div>
+    </div>
+  </div>
+
+  <div style="max-width:800px;margin:40px auto 0;padding:25px;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:12px;box-shadow:0 6px 20px rgba(102, 126, 234, 0.3);">
+    <p style="font-size:20px;font-weight:600;color:#FFF;font-family:'Inter',sans-serif;margin:0;">
+      <i class="fas fa-project-diagram" style="margin-right:10px;"></i>
+      <strong style="font-weight:800;">23 Ongoing Initiatives</strong> worldwide driving sustainable change
+    </p>
+  </div>
+</section>
+<!-- end impact numbers section here -->
+
+<!-- START PROGRAM IMPACT SECTION -->
+<section style="padding:100px 5%;background:#f8f9fa;text-align:center;font-family:'Inter',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="color:#1a1a1a;font-size:42px;font-weight:800;margin-bottom:15px;text-transform:uppercase;letter-spacing:3px;">Program Impact</h2>
+    <div style="width:80px;height:4px;background:#c43a30;margin:0 auto 20px;border-radius:2px;"></div>
+    <p style="font-size:20px;color:#555;max-width:900px;margin:0 auto 60px;line-height:1.7;">Ensuring public services are delivered to the beneficiary at the last mile.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px;text-align:left;margin-top:50px;">
+
+      <!-- Community Empowerment -->
+      <div style="background:#FFF;padding:40px 35px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:5px solid #c43a30;transition:all .3s ease;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 30px rgba(0,0,0,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.08)'">
+        <div style="display:flex;align-items:center;margin-bottom:20px;">
+          <i class="fas fa-users-cog" style="color:#c43a30;font-size:36px;margin-right:18px;"></i>
+          <h3 style="color:#1a1a1a;font-size:22px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Community Empowerment</h3>
+        </div>
+        <p style="font-size:16px;color:#555;line-height:1.8;margin:0;">Swaniti's bottom-up approach has ensured that the voices of local communities are heard, fostering a sense of ownership and responsibility towards sustainable practices.</p>
+      </div>
+
+      <!-- Inclusivity and Equity -->
+      <div style="background:#FFF;padding:40px 35px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:5px solid #ff7637;transition:all .3s ease;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 30px rgba(0,0,0,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.08)'">
+        <div style="display:flex;align-items:center;margin-bottom:20px;">
+          <i class="fas fa-balance-scale" style="color:#ff7637;font-size:36px;margin-right:18px;"></i>
+          <h3 style="color:#1a1a1a;font-size:22px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Inclusivity and Equity</h3>
+        </div>
+        <p style="font-size:16px;color:#555;line-height:1.8;margin:0;">Targeting marginalized groups, including SCs, STs, and women, Swaniti has promoted inclusive development, ensuring that the benefits of these interventions reach the most vulnerable sections of society.</p>
+      </div>
+
+      <!-- Capacity Building -->
+      <div style="background:#FFF;padding:40px 35px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:5px solid #667eea;transition:all .3s ease;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 30px rgba(0,0,0,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.08)'">
+        <div style="display:flex;align-items:center;margin-bottom:20px;">
+          <i class="fas fa-graduation-cap" style="color:#667eea;font-size:36px;margin-right:18px;"></i>
+          <h3 style="color:#1a1a1a;font-size:22px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Capacity Building</h3>
+        </div>
+        <p style="font-size:16px;color:#555;line-height:1.8;margin:0;">Training programs and capacity-building sessions have equipped local communities with the skills and knowledge needed to sustain and scale these interventions, promoting long-term resilience and self-reliance.</p>
+      </div>
+
+      <!-- Policy Recommendations -->
+      <div style="background:#FFF;padding:40px 35px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:5px solid #764ba2;transition:all .3s ease;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 30px rgba(0,0,0,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.08)'">
+        <div style="display:flex;align-items:center;margin-bottom:20px;">
+          <i class="fas fa-file-contract" style="color:#764ba2;font-size:36px;margin-right:18px;"></i>
+          <h3 style="color:#1a1a1a;font-size:22px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Policy Recommendations</h3>
+        </div>
+        <p style="font-size:16px;color:#555;line-height:1.8;margin:0;">By conducting rigorous field research and engaging with government stakeholders, Swaniti has provided valuable policy recommendations that have led to improved implementation of various government schemes.</p>
+      </div>
+
+      <!-- Collaborative Frameworks -->
+      <div style="background:#FFF;padding:40px 35px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:5px solid #c43a30;transition:all .3s ease;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 30px rgba(0,0,0,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.08)'">
+        <div style="display:flex;align-items:center;margin-bottom:20px;">
+          <i class="fas fa-handshake" style="color:#c43a30;font-size:36px;margin-right:18px;"></i>
+          <h3 style="color:#1a1a1a;font-size:22px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Collaborative Frameworks</h3>
+        </div>
+        <p style="font-size:16px;color:#555;line-height:1.8;margin:0;">Swaniti has successfully built networks between state governments, policy leaders, private sector stakeholders, and communities, creating a collaborative framework for effective governance and developmental growth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- END PROGRAM IMPACT SECTION -->
+
+<!-- START IMPACT STORIES SECTION -->
+<section style="padding:100px 5%;background:#FFF;text-align:center;font-family:'Inter',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="color:#1a1a1a;font-size:42px;font-weight:800;margin-bottom:15px;text-transform:uppercase;letter-spacing:3px;">Impact Stories</h2>
+    <div style="width:80px;height:4px;background:#c43a30;margin:0 auto 60px;border-radius:2px;"></div>
+
+    <div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);padding:80px 60px;border-radius:20px;box-shadow:0 15px 40px rgba(102, 126, 234, 0.3);color:#FFF;">
+      <i class="fas fa-book-open" style="font-size:80px;margin-bottom:30px;opacity:0.9;"></i>
+      <h3 style="font-size:32px;font-weight:700;margin-bottom:20px;">Stories of Change Coming Soon</h3>
+      <p style="font-size:20px;line-height:1.7;max-width:800px;margin:0 auto;opacity:0.95;">
+        We are collecting inspiring stories from the communities we serve. Check back soon to read about the real people and real impact behind our numbers.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- END IMPACT STORIES SECTION -->
+
+<!-- CTA SECTION -->
+<section style="padding:80px 5%;background:linear-gradient(135deg, #c43a30 0%, #ff7637 100%);text-align:center;font-family:'Inter',sans-serif;">
+  <div style="max-width:900px;margin:0 auto;">
+    <h2 style="color:#FFF;font-size:40px;font-weight:800;margin-bottom:20px;text-transform:uppercase;letter-spacing:2px;">Join Us in Creating Impact</h2>
+    <p style="color:#FFF;font-size:20px;line-height:1.7;margin-bottom:40px;opacity:0.95;">
+      Partner with us to drive sustainable change and create lasting impact in communities worldwide.
+    </p>
+    <a href="{% url 'v2:about' %}" style="background:#FFF;color:#c43a30;padding:18px 45px;text-decoration:none;border-radius:50px;font-weight:700;font-size:18px;display:inline-block;transition:.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 12px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">Learn More About Us</a>
+  </div>
+</section>
+<!-- END CTA SECTION -->
+
+{% endblock %}

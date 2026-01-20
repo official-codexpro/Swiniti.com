@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Impact - Swaniti Initiative{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white section-padding">
+    <div class="absolute inset-0 bg-pattern opacity-20"></div>
+    <div class="container-custom relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="heading-xl text-white mb-6">Our Impact</h1>
+            <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+                Measuring our contribution to strengthening governance and public policy across India through data-driven insights and tangible outcomes.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Organization-Wide Metrics -->
+{% if org_metrics %}
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg mb-6">Overall Impact</h2>
+                <p class="text-xl text-warm-600">Our collective achievements across all centers and initiatives.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for metric in org_metrics %}
+                <div class="text-center p-10 bg-gradient-to-br from-primary-50 to-warm-50 rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    {% if metric.icon %}
+                    <div class="w-20 h-20 mx-auto mb-6 bg-primary-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    {% endif %}
+                    <div class="stat-value mb-4">{{ metric.value }}</div>
+                    <div class="stat-label">{{ metric.label }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Center-Specific Metrics -->
+{% if center_metrics %}
+<section class="section-padding bg-warm-50">
+    <div class="container-custom">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg mb-6">Impact by Center</h2>
+                <p class="text-xl text-warm-600">Detailed metrics from each of our specialized centers of work.</p>
+            </div>
+
+            <div class="space-y-16">
+                {% for center, metrics in center_metrics.items %}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+                    <!-- Center Header -->
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="{{ center.hero_image_url }}" alt="{{ center.name }}" class="w-full h-full object-cover">
+                        <div class="gradient-overlay"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <h3 class="heading-md text-white">{{ center.name }}</h3>
+                        </div>
+                    </div>
+
+                    <!-- Center Metrics -->
+                    <div class="p-8">
+                        <p class="text-warm-600 mb-8 text-center max-w-3xl mx-auto">
+                            {{ center.short_description }}
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {% for metric in metrics %}
+                            <div class="text-center p-6 bg-warm-50 rounded-2xl">
+                                {% if metric.icon %}
+                                <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                                {% endif %}
+                                <div class="text-3xl md:text-4xl font-bold text-primary-600 font-heading mb-2">
+                                    {{ metric.value }}
+                                </div>
+                                <div class="text-sm text-warm-600 uppercase tracking-wide font-medium">
+                                    {{ metric.label }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="text-center mt-8">
+                            <a href="{{ center.get_absolute_url }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-200">
+                                Learn More About {{ center.name }}
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Empty State -->
+{% if not org_metrics and not center_metrics %}
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-2xl mx-auto text-center py-16">
+            <div class="w-24 h-24 mx-auto mb-6 bg-warm-200 rounded-full flex items-center justify-center">
+                <svg class="w-12 h-12 text-warm-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+            </div>
+            <h2 class="heading-md mb-4 text-warm-600">Impact Data Coming Soon</h2>
+            <p class="text-warm-500 mb-8">We're currently compiling our impact metrics. Check back soon for detailed insights.</p>
+            <a href="{% url 'sitecore:centers_list' %}" class="btn btn-primary">
+                Explore Our Centers
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Our Approach Section -->
+<section class="section-padding bg-white border-t border-warm-200">
+    <div class="container-custom">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg mb-6">Our Approach to Impact</h2>
+                <p class="text-xl text-warm-600">We measure success through multiple dimensions of governance strengthening.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Research & Analysis -->
+                <div class="text-center p-8">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-primary-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="heading-sm mb-4">Research & Analysis</h3>
+                    <p class="text-warm-600">Evidence-based research that informs policy decisions and strengthens governance frameworks.</p>
+                </div>
+
+                <!-- Capacity Building -->
+                <div class="text-center p-8">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-primary-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="heading-sm mb-4">Capacity Building</h3>
+                    <p class="text-warm-600">Training and empowering government officials, elected representatives, and civil society organizations.</p>
+                </div>
+
+                <!-- Institutional Support -->
+                <div class="text-center p-8">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-primary-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="heading-sm mb-4">Institutional Support</h3>
+                    <p class="text-warm-600">Strengthening government institutions through technical assistance and systems improvement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-gradient-to-br from-warm-900 via-warm-800 to-primary-900 text-white">
+    <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-lg text-white mb-6">Partner With Us</h2>
+            <p class="text-xl text-warm-100 mb-8 leading-relaxed">
+                Join us in creating measurable impact in governance and public policy across India.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'sitecore:page_detail' slug='contact' %}" class="btn bg-white text-warm-900 hover:bg-warm-50 shadow-xl">
+                    Get in Touch
+                </a>
+                <a href="{% url 'sitecore:centers_list' %}" class="btn btn-outline border-white text-white hover:bg-white/10">
+                    Explore Our Work
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

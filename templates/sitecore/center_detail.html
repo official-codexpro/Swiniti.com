@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ center.name }} - Swaniti Initiative{% endblock %}
+
+{% block meta %}
+{{ block.super }}
+{% if center.get_meta %}
+<meta name="description" content="{{ center.get_meta.description }}">
+<meta property="og:title" content="{{ center.name }} - Swaniti Initiative">
+<meta property="og:description" content="{{ center.short_description }}">
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative h-[500px] md:h-[600px]">
+    <div class="absolute inset-0">
+        <img src="{{ center.hero_image_url }}" alt="{{ center.name }}" class="w-full h-full object-cover">
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <div class="relative h-full container-custom flex items-center">
+        <div class="max-w-4xl">
+            <h1 class="heading-xl text-white mb-6">{{ center.name }}</h1>
+            <p class="text-xl md:text-2xl text-warm-100 leading-relaxed">
+                {{ center.short_description }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+            <!-- Center Body Content -->
+            <div class="prose prose-lg max-w-none ckeditor-content mb-12">
+                {{ center.body|safe }}
+            </div>
+
+            <!-- Metrics Section -->
+            {% if metrics %}
+            <div class="mt-16 pt-16 border-t border-warm-200">
+                <h2 class="heading-md mb-12 text-center">Impact Metrics</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {% for metric in metrics %}
+                    <div class="text-center p-8 bg-gradient-to-br from-primary-50 to-warm-50 rounded-3xl">
+                        {% if metric.icon %}
+                        <div class="w-16 h-16 mx-auto mb-6 bg-primary-100 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        {% endif %}
+                        <div class="stat-value mb-3">{{ metric.value }}</div>
+                        <div class="stat-label text-warm-700">{{ metric.label }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Related Posts -->
+{% if related_posts %}
+<section class="section-padding bg-warm-50">
+    <div class="container-custom">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="heading-md mb-12 text-center">Related Insights</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {% for post in related_posts %}
+                <article class="card card-hover group">
+                    <!-- Image -->
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="{{ post.banner_image_url }}" alt="{{ post.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+
+                        <!-- Category Badge -->
+                        {% if post.category %}
+                        <div class="absolute top-4 left-4">
+                            <span class="inline-block px-4 py-2 bg-primary-500 text-white text-sm font-semibold rounded-xl">
+                                {{ post.category.name }}
+                            </span>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+                        <!-- Meta -->
+                        <div class="flex items-center space-x-4 text-sm text-warm-500 mb-3">
+                            {% if post.author %}
+                            <span>{{ post.author.get_full_name|default:post.author.username }}</span>
+                            <span>&middot;</span>
+                            {% endif %}
+                            <time datetime="{{ post.published_at|date:'Y-m-d' }}">
+                                {{ post.published_at|date:"M d, Y" }}
+                            </time>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="text-lg font-heading font-semibold mb-3 line-clamp-2">
+                            <a href="{{ post.get_absolute_url }}" class="hover:text-primary-600 transition-colors duration-200">
+                                {{ post.title }}
+                            </a>
+                        </h3>
+
+                        <!-- Read More -->
+                        <a href="{{ post.get_absolute_url }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-200">
+                            Read More
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="{% url 'sitecore:blog_index' %}" class="btn btn-outline">
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="section-padding bg-gradient-to-br from-primary-600 to-primary-700 text-white">
+    <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-lg text-white mb-6">Interested in This Work?</h2>
+            <p class="text-xl text-primary-100 mb-8 leading-relaxed">
+                Learn more about how we're making an impact in {{ center.name|lower }} and how you can partner with us.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'sitecore:page_detail' slug='contact' %}" class="btn bg-white text-primary-600 hover:bg-warm-50 shadow-xl">
+                    Get in Touch
+                </a>
+                <a href="{% url 'sitecore:centers_list' %}" class="btn btn-outline border-white text-white hover:bg-white/10">
+                    Explore Other Centers
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

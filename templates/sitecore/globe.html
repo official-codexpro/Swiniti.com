@@ -1,0 +1,393 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Global Presence - Interactive Map - Swaniti Initiative{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --globe-bg: #0b0f19;
+        --globe-water: #0f172a;
+        --globe-land: #1f2937;
+        --globe-border: #475569;
+        --globe-hover: #F97316; /* Theme primary */
+        --globe-active: color-mix(in srgb, #F97316 75%, white 25%);
+    }
+
+    #globe-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        cursor: grab;
+    }
+
+    #globe-canvas:active {
+        cursor: grabbing;
+    }
+
+    .globe-tooltip {
+        position: fixed;
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .globe-tooltip.visible {
+        opacity: 1;
+    }
+
+    .control-button {
+        transition: all 0.2s ease;
+    }
+
+    .control-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    }
+
+    .control-button.active {
+        background: #F97316;
+        color: white;
+    }
+
+    #globe-container {
+        background: linear-gradient(135deg, #0b0f19 0%, #1a1f2e 100%);
+    }
+
+    .stat-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(249, 115, 22, 0.5);
+        transform: translateY(-4px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-warm-900 via-warm-800 to-primary-900 text-white py-16">
+    <div class="absolute inset-0 bg-pattern opacity-20"></div>
+    <div class="container-custom relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="heading-xl text-white mb-4">Our Global Presence</h1>
+            <p class="text-xl text-warm-100">
+                Explore our work across 6 countries driving climate action and sustainable development
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Globe Section -->
+<section class="relative min-h-screen py-12" id="globe-section">
+    <div class="container-custom">
+        <!-- Controls Panel -->
+        <div class="mb-6 flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex flex-wrap gap-3">
+                <button id="btn-auto-rotate" class="control-button px-4 py-2 bg-warm-800 text-white rounded-xl hover:bg-primary transition-colors">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        Auto Rotate
+                    </span>
+                </button>
+
+                <button id="btn-reset-view" class="control-button px-4 py-2 bg-warm-800 text-white rounded-xl hover:bg-primary transition-colors">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path>
+                        </svg>
+                        Reset View
+                    </span>
+                </button>
+            </div>
+
+            <div class="flex gap-3">
+                <button id="btn-focus-india" class="control-button px-4 py-2 bg-warm-700 text-white rounded-xl hover:bg-primary transition-colors text-sm">
+                    Focus India
+                </button>
+                <button id="btn-highlight-all" class="control-button px-4 py-2 bg-warm-700 text-white rounded-xl hover:bg-primary transition-colors text-sm">
+                    Show All Countries
+                </button>
+            </div>
+        </div>
+
+        <!-- Globe Container -->
+        <div id="globe-container" class="relative rounded-3xl overflow-hidden shadow-2xl" style="height: 700px;">
+            <canvas id="globe-canvas"></canvas>
+
+            <!-- Tooltip -->
+            <div id="globe-tooltip" class="globe-tooltip rounded-2xl shadow-lg px-4 py-3 text-sm">
+                <div class="font-semibold text-warm-900" id="tooltip-country"></div>
+                <div class="text-warm-600 text-xs mt-1" id="tooltip-meta"></div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="globe-loading" class="absolute inset-0 flex items-center justify-center bg-warm-900 bg-opacity-90">
+                <div class="text-center">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                    <p class="mt-4 text-white text-sm">Loading interactive globe...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="mt-6 grid md:grid-cols-3 gap-4">
+            <div class="stat-card rounded-2xl p-6 text-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                    </svg>
+                    <h3 class="font-semibold">Rotate & Zoom</h3>
+                </div>
+                <p class="text-warm-300 text-sm">Drag to rotate the globe. Scroll to zoom in and out. Double-click to reset.</p>
+            </div>
+
+            <div class="stat-card rounded-2xl p-6 text-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    <h3 class="font-semibold">Hover & Click</h3>
+                </div>
+                <p class="text-warm-300 text-sm">Hover over countries to see details. Click to focus and view our work there.</p>
+            </div>
+
+            <div class="stat-card rounded-2xl p-6 text-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="font-semibold">Our Presence</h3>
+                </div>
+                <p class="text-warm-300 text-sm">Highlighted countries show where we're actively working on climate and governance initiatives.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Countries We Operate In -->
+<section class="section-padding bg-warm-50">
+    <div class="container-custom">
+        <h2 class="heading-lg text-center mb-12">Countries We Operate In</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🇮🇳</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-warm-900 mb-2">India</h3>
+                        <p class="text-warm-600 text-sm mb-3">Operating across 12 states, strengthening government programs and facilitating green energy transition.</p>
+                        <button class="text-primary hover:text-primary-dark font-semibold text-sm focus-country-btn" data-country="IND">
+                            View on Globe →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🇿🇦</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-warm-900 mb-2">South Africa</h3>
+                        <p class="text-warm-600 text-sm mb-3">Micro-planning programs across the mining belt, advancing energy transition initiatives.</p>
+                        <button class="text-primary hover:text-primary-dark font-semibold text-sm focus-country-btn" data-country="ZAF">
+                            View on Globe →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🇮🇩</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-warm-900 mb-2">Indonesia</h3>
+                        <p class="text-warm-600 text-sm mb-3">Strategic partnership with Bappenas supporting energy transition and decarbonization efforts.</p>
+                        <button class="text-primary hover:text-primary-dark font-semibold text-sm focus-country-btn" data-country="IDN">
+                            View on Globe →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🇺🇸</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-warm-900 mb-2">United States</h3>
+                        <p class="text-warm-600 text-sm mb-3">Collaborating with energy communities to develop new economic opportunities.</p>
+                        <button class="text-primary hover:text-primary-dark font-semibold text-sm focus-country-btn" data-country="USA">
+                            View on Globe →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🇧🇷</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-warm-900 mb-2">Brazil</h3>
+                        <p class="text-warm-600 text-sm mb-3">Working with state bodies to establish responsible mining practices and sustainability standards.</p>
+                        <button class="text-primary hover:text-primary-dark font-semibold text-sm focus-country-btn" data-country="BRA">
+                            View on Globe →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🇳🇬</span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-warm-900 mb-2">Nigeria</h3>
+                        <p class="text-warm-600 text-sm mb-3">Promoting sustainable mining practices that balance economic progress with environmental responsibility.</p>
+                        <button class="text-primary hover:text-primary-dark font-semibold text-sm focus-country-btn" data-country="NGA">
+                            View on Globe →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-padding bg-gradient-to-br from-primary-900 to-warm-900 text-white">
+    <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="heading-lg text-white mb-6">Want to Learn More About Our Work?</h2>
+            <p class="text-xl text-warm-100 mb-8">
+                Explore our centers, read about our impact, or get in touch to discuss partnership opportunities.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="{% url 'sitecore:centers_list' %}" class="btn-primary">
+                    Explore Our Centers
+                </a>
+                <a href="{% url 'sitecore:impact' %}" class="btn-outline bg-white text-primary hover:bg-warm-100">
+                    View Our Impact
+                </a>
+                <a href="{% url 'sitecore:page_detail' slug='contact' %}" class="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Accessibility announcer -->
+<div class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="globe-announcer"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="{% static 'js/globe3d.js' %}"></script>
+<script type="module">
+import { initGlobe } from '{% static "js/globe3d.js" %}';
+
+// Configuration
+const config = {
+    activeCountries: ['IND', 'ZAF', 'IDN', 'USA', 'BRA', 'NGA'],
+    countryLinks: {
+        'IND': '{% url "sitecore:page_detail" slug="about" %}',
+        'ZAF': '{% url "sitecore:page_detail" slug="about" %}',
+        'IDN': '{% url "sitecore:page_detail" slug="about" %}',
+        'USA': '{% url "sitecore:page_detail" slug="about" %}',
+        'BRA': '{% url "sitecore:page_detail" slug="about" %}',
+        'NGA': '{% url "sitecore:page_detail" slug="about" %}'
+    },
+    countryMeta: {
+        'IND': { states: '12 states', focus: 'Government programs & green energy transition' },
+        'ZAF': { focus: 'Mining belt energy transition', programs: 'Micro-planning programs' },
+        'IDN': { partner: 'Bappenas (Ministry of Planning)', focus: 'Energy transition & decarbonization' },
+        'USA': { focus: 'Energy communities', work: 'New economic opportunities' },
+        'BRA': { focus: 'Responsible mining practices', scope: 'State government collaboration' },
+        'NGA': { focus: 'Sustainable mining', goal: 'Economic & environmental balance' }
+    },
+    theme: {
+        primary: '#F97316',
+        land: '#1f2937',
+        border: '#475569',
+        water: '#0f172a',
+        hover: '#22D3EE',          // Cyan for hover - clearly different
+        active: '#FBBF24',          // Bright yellow-orange for active
+        activeEmissive: '#F97316'   // Orange glow
+    },
+    autoRotate: true
+};
+
+// Initialize globe
+let globeAPI;
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('globe-canvas');
+    globeAPI = initGlobe(canvas, config);
+
+    // Button handlers
+    document.getElementById('btn-auto-rotate').addEventListener('click', function() {
+        const isActive = this.classList.toggle('active');
+        globeAPI.setAutoRotate(isActive);
+    });
+
+    document.getElementById('btn-reset-view').addEventListener('click', () => {
+        globeAPI.resetView();
+    });
+
+    document.getElementById('btn-focus-india').addEventListener('click', () => {
+        globeAPI.focusCountry('IND', { zoom: 1.5, duration: 1000 });
+    });
+
+    document.getElementById('btn-highlight-all').addEventListener('click', () => {
+        globeAPI.setActiveCountries(['IND', 'ZAF', 'IDN', 'USA', 'BRA', 'NGA']);
+    });
+
+    // Country focus buttons
+    document.querySelectorAll('.focus-country-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const country = this.getAttribute('data-country');
+            // Scroll to globe
+            document.getElementById('globe-section').scrollIntoView({ behavior: 'smooth' });
+            // Focus country after scroll
+            setTimeout(() => {
+                globeAPI.focusCountry(country, { zoom: 1.5, duration: 1000 });
+            }, 500);
+        });
+    });
+
+    // Set auto-rotate button as active initially
+    if (config.autoRotate) {
+        document.getElementById('btn-auto-rotate').classList.add('active');
+    }
+});
+</script>
+{% endblock %}

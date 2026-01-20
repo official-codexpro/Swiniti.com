@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swaniti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+    }
+
+    /* Desktop only scroll behavior */
+    @media (min-width: 1024px) {
+      #mainNav.scrolled-full {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+
+        margin: 0 !important;
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+
+        border-radius: 0 !important;
+        justify-content: space-between !important;
+      }
+
+      #mainNav.scrolled-full .logo {
+        margin-right: 0 !important;
+      }
+
+      #mainNav.scrolled-full #menuLinks {
+        margin-left: auto !important;
+      }
+    }
+
+    body {
+      margin: 0 !important;
+    }
+  </style>
+</head>
+
+<body class="bg-[#f9fafb]">
+  <!-- ================= DROPDOWNS ================= -->
+
+<!-- CENTERS -->
+<div id="dd-centers"
+  class="mega fixed inset-x-0 top-0 bg-[#c43a30] text-white opacity-0 pointer-events-none transition-opacity duration-300 z-[999]">
+
+  <div class="max-w-7xl mx-auto px-10 pt-40 pb-20 grid grid-cols-12 gap-16">
+
+    <!-- Left Column -->
+    <div class="col-span-4 border-r border-white/30 pr-12 relative">
+
+      <!-- Logo -->
+      <img src="/static/v2/logo/Swaniti-initiative-C-W-.png" alt="Logo"
+        class="w-32 absolute top-[-130px] left-0" />
+
+      <h2 class="text-[44px] font-extrabold mb-3">Centers</h2>
+      <p class="text-white/90">Specialised centres driving deep expertise across sectors.</p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-span-8 grid grid-cols-2 gap-20">
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Our Centres</h4>
+
+        <a href="/centre/gcdi/" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Global Climate & Development Institute</span>
+        </a>
+
+        <a href="/centre/clefs/" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Center for Legislative Engagement for a Sustainable Future</span>
+        </a>
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">More</h4>
+
+        <a href="/centre/centre-for-sub-national-engagement/"
+          class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Centre for Sub-National Engagement</span>
+        </a>
+
+        <a href="/centre/centre-for-green-livelihood/"
+          class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Centre for Green Livelihood</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- ABOUT -->
+<div id="dd-about"
+  class="mega fixed inset-x-0 top-0 bg-[#c43a30] text-white opacity-0 pointer-events-none transition-opacity duration-300 z-[999]">
+
+  <div class="max-w-7xl mx-auto px-10 pt-40 pb-20 grid grid-cols-12 gap-16">
+
+    <!-- Left Column -->
+    <div class="col-span-4 border-r border-white/30 pr-12 relative">
+
+      <!-- Logo -->
+      <img src="/static/v2/logo/Swaniti-initiative-C-W-.png" alt="Logo"
+        class="w-32 absolute top-[-130px] left-0" />
+
+      <h2 class="text-[44px] font-extrabold mb-3">About Us</h2>
+
+      <p class="text-white/90">
+        An independent research organisation shaping equitable development.
+      </p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-span-8 grid grid-cols-2 gap-20">
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">
+          Organisation
+        </h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Who We Are</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Our Values</span>
+        </a>
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">
+          People
+        </h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Team</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Partners</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div id="dd-impact"
+  class="mega fixed inset-x-0 top-0 bg-[#c43a30] text-white opacity-0 pointer-events-none transition-opacity duration-300 z-[999]">
+
+  <div class="max-w-7xl mx-auto px-10 pt-40 pb-20 grid grid-cols-12 gap-16">
+
+    <!-- Left Column -->
+    <div class="col-span-4 border-r border-white/30 pr-12 relative">
+
+      <!-- Logo -->
+      <img src="/static/v2/logo/Swaniti-initiative-C-W-.png" alt="Logo"
+        class="w-32 absolute top-[-130px] left-0" />
+
+      <h2 class="text-[44px] font-extrabold mb-3">Impact</h2>
+      <p class="text-white/90">Measuring outcomes and real-world change.</p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-span-8 grid grid-cols-2 gap-20">
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Get Involved</h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>About Us</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Careers</span>
+        </a>
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Stories</h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Events</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- EVENTS -->
+<div id="dd-events"
+  class="mega fixed inset-x-0 top-0 bg-[#c43a30] text-white opacity-0 pointer-events-none transition-opacity duration-300 z-[999]">
+
+  <div class="max-w-7xl mx-auto px-10 pt-40 pb-20 grid grid-cols-12 gap-16">
+
+    <!-- Left Column -->
+    <div class="col-span-4 border-r border-white/30 pr-12 relative">
+
+      <!-- Logo -->
+      <img src="/static/v2/logo/Swaniti-initiative-C-W-.png" alt="Logo"
+        class="w-32 absolute top-[-130px] left-0" />
+
+      <h2 class="text-[44px] font-extrabold mb-3">Events</h2>
+      <p class="text-white/90">Dialogues, workshops, and public conversations.</p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-span-8 grid grid-cols-2 gap-20">
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Upcoming</h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Webinars</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Conferences</span>
+        </a>
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Archive</h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Past Events</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Recordings</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+ <!-- RESEARCH -->
+<div id="dd-research"
+  class="mega fixed inset-x-0 top-0 bg-[#c43a30] text-white opacity-0 pointer-events-none transition-opacity duration-300 z-[999]">
+
+  <div class="max-w-7xl mx-auto px-10 pt-40 pb-20 grid grid-cols-12 gap-16">
+
+    <!-- Left Column -->
+    <div class="col-span-4 border-r border-white/30 pr-12 relative">
+
+      <!-- Logo -->
+      <img src="/static/v2/logo/Swaniti-initiative-C-W-.png" alt="Logo"
+        class="w-32 absolute top-[-130px] left-0" />
+
+      <h2 class="text-[44px] font-extrabold mb-3">Research & Insights</h2>
+      <p class="text-white/90">Knowledge products for informed decision-making.</p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-span-8 grid grid-cols-2 gap-20">
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Publications</h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Research & Data</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Policy & Governance</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Climate & Energy</span>
+        </a>
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-widest border-b border-white/30 pb-3 mb-6">Explore</h4>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>All Posts</span>
+        </a>
+
+        <a href="#" class="flex items-start gap-2 py-1.5 hover:translate-x-1 transition">
+          <span class="mt-1">›</span>
+          <span>Blog & Insights</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!-- ================= NAVBAR ================= -->
+  <nav id="mainNav"
+    class="fixed top-0 right-0 w-full min-[1024px]:w-[94%] min-[1200px]:w-[86%] min-[1400px]:w-[78%] min-[1600px]:w-[70%] min-[1800px]:w-[60%] min-[1800px]:max-w-[1400px]
+ bg-white px-6 lg:px-[60px] py-[18px] flex items-center justify-between lg:justify-center  shadow-[0_5px_20px_rgba(0,0,0,0.15)]  lg:rounded-bl-[10px] z-[1000]">
+
+
+    <a href="/" class="logo text-[#c43a30] text-[24px] font-extrabold lg:mr-[60px]">Swaniti</a>
+
+    <ul id="menuLinks" class="hidden lg:flex gap-[42px] xl:gap-[56px] 2xl:gap-[70px] list-none m-0 p-0">
+      <li><a href="/centre/gcdi/" data-dd="dd-centers" class="font-semibold cursor-pointer">Centers</a></li>
+      <li><a href="/about/" data-dd="dd-about" class="font-semibold cursor-pointer">About us</a></li>
+      <li><a href="/impact/" data-dd="dd-impact" class="font-semibold cursor-pointer">Impact</a></li>
+      <li><a href="/event/" data-dd="dd-events" class="font-semibold cursor-pointer">Events</a></li>
+      <li><a href="/research-and-insights/" data-dd="dd-research" class="font-semibold cursor-pointer">Research and
+          Insights</a></li>
+    </ul>
+
+    <button id="toggleBtn" class="lg:hidden text-3xl">☰</button>
+  </nav>
+
+  <!-- ================= MOBILE SIDE MENU ================= -->
+  <!-- Overlay -->
+  <div id="mobileOverlay"
+    class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-[998]">
+  </div>
+
+  <!-- Drawer -->
+  <aside id="sideMenu" class="fixed top-0 right-0 h-full w-[90%] max-w-sm bg-white z-[999]
+         translate-x-full transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)]
+         rounded-l-3xl shadow-2xl flex flex-col">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-5 border-b">
+      <span class="text-[#d9004c] font-extrabold text-lg">Swaniti</span>
+      <button id="closeSide"
+        class="w-10 h-10 rounded-full bg-gray-100 grid place-items-center text-xl hover:bg-gray-200 transition">
+        ✕
+      </button>
+    </div>
+
+    <!-- Menu -->
+    <div class="flex-1 overflow-y-auto">
+
+      <!-- Reusable item -->
+
+      <div class="border-b">
+        <button href="/centre/gcdi/"
+          class="submenu-toggle w-full flex justify-between items-center px-6 py-5 font-semibold">
+          Centers
+          <span class="chev transition-transform">⌄</span>
+        </button>
+        <div class="submenu max-h-0 overflow-hidden transition-all duration-500 bg-gray-50">
+          <a href="/centre/gcdi/" class="block px-10 py-4 hover:bg-gray-100">GCDI</a>
+          <a href="/centre/clefs/" class="block px-10 py-4 hover:bg-gray-100">CLEFS</a>
+          <a href="/centre/centre-for-sub-national-engagement/"
+            class="block px-10 py-4 hover:bg-gray-100">Sub-National</a>
+          <a href="/centre/centre-for-green-livelihood/" class="block px-10 py-4 hover:bg-gray-100">Green Livelihood</a>
+
+        </div>
+      </div>
+
+      <a href="/about/" class="block px-6 py-5 font-semibold border-b hover:bg-gray-50">About us</a>
+      <a href="/impact/" class="block px-6 py-5 font-semibold border-b hover:bg-gray-50">Impact</a>
+      <a href="/event/" class="block px-6 py-5 font-semibold border-b hover:bg-gray-50">Events</a>
+      <a href="/research-and-insights/" class="block px-6 py-5 font-semibold hover:bg-gray-50">Research & Insights</a>
+
+    </div>
+  </aside>
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script>
+    const nav = document.getElementById("mainNav");
+
+    window.addEventListener("scroll", () => {
+      if (window.innerWidth >= 1024 && window.scrollY > 40) {
+        nav.classList.add("scrolled-full");
+      } else {
+        nav.classList.remove("scrolled-full");
+      }
+    });
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+
+      //  ELEMENTS
+      const dropdowns = document.querySelectorAll(".mega");
+      const triggers = document.querySelectorAll("[data-dd]");
+      const toggleBtn = document.getElementById("toggleBtn");
+      const sideMenu = document.getElementById("sideMenu");
+      const closeSide = document.getElementById("closeSide");
+      const overlay = document.getElementById("mobileOverlay");
+
+      const submenuToggles = document.querySelectorAll(".submenu-toggle");
+
+      let timer = null;
+
+      //HELPERS
+      const isDesktop = () => window.innerWidth >= 1024;
+
+      function closeAllDropdowns() {
+        dropdowns.forEach(d => {
+          d.classList.add("opacity-0", "pointer-events-none");
+        });
+      }
+
+      function openDropdown(id) {
+        clearTimeout(timer);
+        closeAllDropdowns();
+        const el = document.getElementById(id);
+        if (el) el.classList.remove("opacity-0", "pointer-events-none");
+      }
+
+      function delayedClose() {
+        timer = setTimeout(closeAllDropdowns, 150);
+      }
+
+
+      //DESKTOP MEGA MENU
+      triggers.forEach(link => {
+        const id = link.dataset.dd;
+
+        link.addEventListener("mouseenter", () => {
+          if (isDesktop()) openDropdown(id);
+        });
+
+        link.addEventListener("mouseleave", () => {
+          if (isDesktop()) delayedClose();
+        });
+      });
+
+      dropdowns.forEach(panel => {
+        panel.addEventListener("mouseenter", () => clearTimeout(timer));
+        panel.addEventListener("mouseleave", () => {
+          if (isDesktop()) delayedClose();
+        });
+      });
+
+
+      //MOBILE SIDE MENU
+      function openSideMenu() {
+        sideMenu.classList.remove("translate-x-full");
+        overlay.classList.remove("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSideMenu() {
+        sideMenu.classList.add("translate-x-full");
+        overlay.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "";
+      }
+
+      toggleBtn?.addEventListener("click", openSideMenu);
+      closeSide?.addEventListener("click", closeSideMenu);
+      overlay?.addEventListener("click", closeSideMenu);
+
+      //MOBILE SUBMENU 
+      submenuToggles.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const submenu = btn.nextElementSibling;
+          const icon = btn.querySelector(".chev");
+
+          // close other submenus (accordion behavior)
+          document.querySelectorAll(".submenu").forEach(s => {
+            if (s !== submenu) s.style.maxHeight = null;
+          });
+
+          document.querySelectorAll(".chev").forEach(c => {
+            if (c !== icon) c.style.transform = "rotate(0deg)";
+          });
+
+          // toggle current
+          if (submenu.style.maxHeight) {
+            submenu.style.maxHeight = null;
+            icon.style.transform = "rotate(0deg)";
+          } else {
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
+            icon.style.transform = "rotate(180deg)";
+          }
+        });
+      });
+
+      //RESET ON RESIZE
+      window.addEventListener("resize", () => {
+        if (!isDesktop()) closeAllDropdowns();
+      });
+
+    });
+  </script>
+</body>
+
+</html>

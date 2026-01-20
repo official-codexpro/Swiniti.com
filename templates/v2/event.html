@@ -1,0 +1,174 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}Events - Swaniti{% endblock %}
+
+{% block content %}
+
+  <!--start nav hero section -->
+<div class="hero" style="height:82vh;background:url('{% static 'v2/images/IMG_5191.JPG' %}') center/cover no-repeat;position:relative;font-family:'Inter var',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:0;">
+
+  <div class="hero-text" style="position:absolute;bottom:120px;left:100px;color:#FFF;max-width:900px;z-index:10;">
+    <h1 style="font-size:55px;margin-bottom:18px;font-family:'Inter var',sans-serif;">Shaping Impact Through Collaborative Events and Engagements</h1>
+    <p style="font-size:18px;line-height:1.7;margin-bottom:25px;font-family:'Inter var',sans-serif;">We bring governments, experts, and communities together through events that inspire dialogue, collaboration, and lasting impact.</p>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+</div></div>
+<!--end nav hero section-->
+
+
+<!--Upcomming Event Section Start{aak}-->
+<section style="padding:120px 5%;background:#FFF;font-family:'Inter var',sans-serif;">
+
+<div style="max-width:1400px;margin:0 auto 100px;">
+  <h2 style="font-size:48px;font-weight:900;color:#1a1a1a;text-align:center;margin-bottom:15px;letter-spacing:-1px;">Upcoming Events</h2>
+  <div style="width:120px;height:5px;background:#c43a30;margin:0 auto 40px;border-radius:10px;"></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;">
+
+    {% for event in upcoming_events %}
+    <div style="border-radius:20px;overflow:hidden;background:#FFF;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:.3s;"
+         onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,.12)'"
+         onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+      <div style="height:230px;position:relative;overflow:hidden;">
+        <img src="{{ event.banner_image.url }}" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);"></div>
+        <div style="position:absolute;bottom:20px;left:20px;color:#FFF;font-size:16px;font-weight:700;">{{ event.event_date|date:"d M" }}{% if event.location %} • {{ event.location }}{% endif %}</div>
+      </div>
+      <div style="padding:25px;">
+        <h3 style="font-size:22px;font-weight:800;color:#1a1a1a;margin-bottom:10px;">{{ event.title }}</h3>
+        <p style="font-size:15px;color:#666;line-height:1.7;margin-bottom:18px;">{{ event.description|truncatewords:20 }}</p>
+        <a href="{% url 'v2:event_detail' event.slug %}" style="color:#c43a30;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;text-transform:uppercase;">Know More</a>
+      </div>
+    </div>
+    {% empty %}
+    <p style="text-align:center;color:#666;grid-column:1/-1;">No upcoming events at the moment.</p>
+    {% endfor %}
+
+  </div>
+</div>
+</section>
+<!--Upcomming Event Section end{aak}-->
+
+<!--Past Event Section end{aak}-->
+<section style="padding:80px 5%;background:#FFF;font-family:'Inter var',sans-serif; margin-top: -9%;">
+
+<div style="max-width:1400px;margin:0 auto;">
+  <h2 style="font-size:48px;font-weight:900;color:#1a1a1a;text-align:center;margin-bottom:15px;letter-spacing:-1px;">Past Events</h2>
+  <div style="width:120px;height:5px;background:#c43a30;margin:0 auto 40px;border-radius:10px;"></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;">
+
+    {% for event in past_events %}
+    <a href="{% url 'v2:event_detail' event.slug %}" style="text-decoration:none;">
+      <div style="border-radius:20px;overflow:hidden;background:#FFF;box-shadow:0 10px 35px rgba(0,0,0,.06);transition:.3s;cursor:pointer;"
+           onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 15px 40px rgba(0,0,0,.1)'"
+           onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 35px rgba(0,0,0,.06)'">
+        <div style="height:230px;overflow:hidden;">
+          <img src="{{ event.banner_image.url }}" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:25px;">
+          <h3 style="font-size:22px;font-weight:800;color:#1a1a1a;margin-bottom:10px;">{{ event.title }}</h3>
+          <p style="font-size:15px;color:#666;line-height:1.6;">{{ event.description|truncatewords:15 }}</p>
+        </div>
+      </div>
+    </a>
+    {% empty %}
+    <p style="text-align:center;color:#666;grid-column:1/-1;">No past events to display.</p>
+    {% endfor %}
+
+  </div>
+</div>
+</section>
+<!--Past Event Section end{aak}-->
+
+<!-- Event Gallery Section start{aak}-->
+<section style="padding:0 0 100px;background:#fff;font-family:'Inter var',sans-serif;margin-top:-6%; margin-left: 5%;">
+<!-- HEADING -->
+<div style="max-width:1500px;margin:0 auto;padding:80px 5% 40px;text-align:center;">
+<h2 class="egtitle" style="margin:0;font-weight:900;color:#1a1a1a;">Event Gallery</h2>
+<div style="width:120px;height:5px;background:#c43a30;margin:20px auto;border-radius:10px;"></div>
+</div>
+<!-- SLIDER WRAP (PC HAS MARGIN, MOBILE IS FULL WIDTH) -->
+<div id="galWrap" style="max-width:1500px;margin:0 auto;overflow:hidden;position:relative;touch-action:pan-y;">
+<div id="galTrack" style="display:flex;gap:40px;transition:.4s;">
+
+{% for image in gallery_images %}
+<div class="gitem" style="min-width:33%;height:380px;border-radius:6px;overflow:hidden;">
+<img src="{{ image.image.url }}" alt="{{ image.caption }}" style="width:100%;height:100%;object-fit:cover;">
+{% if image.caption %}
+<div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.7);color:#fff;padding:15px;font-size:14px;">{{ image.caption }}</div>
+{% endif %}
+</div>
+{% empty %}
+<div class="gitem" style="min-width:100%;height:380px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;border-radius:6px;">
+<p style="color:#666;font-size:18px;">No gallery images available.</p>
+</div>
+{% endfor %}
+
+</div>
+<!-- PREMIUM ARROWS -->
+<button class="garrow gl" onclick="slideLeft()">‹</button>
+<button class="garrow gr" onclick="slideRight()">›</button>
+
+</div></section>
+<style>
+/* RESPONSIVE HEADING */
+.egtitle{font-size:48px;}
+@media(max-width:1100px){.egtitle{font-size:38px;}}
+@media(max-width:600px){.egtitle{font-size:30px;}}
+
+/* PREMIUM ARROWS */
+.garrow{
+position:absolute;top:50%;transform:translateY(-50%);
+background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);
+border:none;font-size:32px;cursor:pointer;padding:8px 16px;
+border-radius:50px;color:#111;box-shadow:0 4px 12px rgba(0,0,0,.15);
+transition:.2s;
+}
+.garrow:hover{background:#fff;}
+.gl{left:10px;} .gr{right:10px;}
+
+/* MOBILE & TABLET = FULL WIDTH */
+@media(max-width:1100px){
+  #galWrap{max-width:100%!important;}
+  #galTrack .gitem{min-width:100%!important;height:300px!important;}
+  #galTrack{gap:20px!important;}
+  .garrow{font-size:26px;padding:6px 12px;}
+}
+@media(max-width:600px){
+  #galTrack .gitem{height:240px!important;}
+  .garrow{font-size:22px;padding:5px 10px;}
+}
+</style>
+<script>
+let index=0,startX,curX,drag=false;
+const track=document.getElementById("galTrack");
+const total=track.children.length;
+
+function maxSlide(){return window.innerWidth<=1100?total-1:total-3;}
+
+function slideRight(){if(index<maxSlide())index++;move();}
+function slideLeft(){if(index>0)index--;move();}
+
+galWrap.addEventListener("touchstart",e=>{drag=true;startX=e.touches[0].clientX;});
+galWrap.addEventListener("touchmove",e=>{if(drag)curX=e.touches[0].clientX;});
+galWrap.addEventListener("touchend",()=>{
+  if(!drag)return;drag=false;
+  let diff=startX-curX;
+  if(diff>50&&index<maxSlide())index++;
+  if(diff<-50&&index>0)index--;
+  move();
+});
+
+function move(){
+  let m=window.innerWidth<=1100?index*-102:index*-36.5;
+  track.style.transform=`translateX(${m}%)`;
+}
+window.addEventListener("resize",move);
+</script>
+<!-- Event Gallery Section start{aak}-->
+
+{% endblock %}

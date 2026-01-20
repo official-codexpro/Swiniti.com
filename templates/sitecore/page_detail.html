@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page.title }} - Swaniti Initiative{% endblock %}
+
+{% block meta %}
+{{ block.super }}
+{% if page.get_meta %}
+<meta name="description" content="{{ page.title }}">
+<meta property="og:title" content="{{ page.title }} - Swaniti Initiative">
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-warm-900 via-warm-800 to-primary-900 text-white py-20">
+    <div class="absolute inset-0 bg-pattern opacity-20"></div>
+    <div class="container-custom relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="heading-xl text-white">{{ page.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<!-- Page Content -->
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+            <div class="prose prose-lg max-w-none ckeditor-content">
+                {{ page.body|safe }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-warm-50">
+    <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="heading-md mb-6">Get in Touch</h2>
+            <p class="text-lg text-warm-600 mb-8">
+                Have questions or want to learn more? We'd love to hear from you.
+            </p>
+            <a href="{% url 'sitecore:page_detail' slug='contact' %}" class="btn btn-primary">
+                Contact Us
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

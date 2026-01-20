@@ -1,0 +1,275 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}{{ category.name }} - Research & Insights - Swaniti{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Blog Category Styles */
+.category-hero {
+    height: 50vh;
+    background: linear-gradient(135deg, #c43a30 0%, #FF6B6B 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    font-family: 'Inter var', sans-serif;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.category-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+}
+
+.category-hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    font-family: 'Inter var', sans-serif;
+}
+
+.categories-filter {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.category-chip {
+    padding: 10px 20px;
+    background: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.category-chip:hover,
+.category-chip.active {
+    background: #c43a30;
+    color: white;
+    border-color: #c43a30;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.blog-card-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-category {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #c43a30;
+    color: white;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.blog-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: #111;
+}
+
+.blog-card-excerpt {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .category-hero h1 {
+        font-size: 32px;
+    }
+
+    .category-hero p {
+        font-size: 16px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!--hero section start {aak}-->
+<div class="hero">
+  <div class="overlay-bg"></div>
+  <div class="hero-text">
+    <h1>Transforming Communities Through Evidence-Based Policy</h1>
+    <p>We empower governments and communities to create lasting change through rigorous research and innovative solutions.</p>
+    <a href="/impact/">Our impact</a>
+  </div>
+</div>
+
+<style>
+.hero{margin-bottom:5%;height:82vh;position:relative;background:url('{% static 'v2/images/glimpse.JPG' %}') center/cover no-repeat;font-family:'Inter var',sans-serif;}
+.overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.35);}
+.hero-text{position:absolute;top:48%;left:80px;transform:translateY(-50%);max-width:620px;color:#fff;}
+.hero-text h1{font-size:38px;line-height:1.25;margin-bottom:16px;font-weight:700;}
+.hero-text p{font-size:16px;line-height:1.6;margin-bottom:20px;opacity:.95;}
+.hero-text a{background:#c43a30;color:#fff;padding:10px 20px;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;display:inline-block;transition:.3s;}
+
+/* ------ RESPONSIVE (SHORT FORMAT) ------ */
+@media(max-width:1200px){.hero-text{left:60px;max-width:75%;}.hero-text h1{font-size:34px;}.hero-text p{font-size:15px;}.hero-text a{padding:9px 18px;font-size:13px;}}
+@media(max-width:900px){.hero{height:65vh;}.hero-text{left:35px;max-width:85%;}.hero-text h1{font-size:30px;}.hero-text p{font-size:14px;}.hero-text a{padding:8px 16px;font-size:12px;}}
+@media(max-width:600px){.hero{height:90vh;}.hero-text{left:22px;max-width:90%;transform:translateY(-42%);}.hero-text h1{font-size:24px;line-height:1.3;}.hero-text p{font-size:13px;margin-bottom:18px;}.hero-text a{padding:7px 14px;font-size:11px;}}
+</style>
+
+<!-- Category Hero Section -->
+<div class="category-hero">
+<div style="text-align: center; width: 100%;">
+<h1 style="text-align: center;">{{ category.name }}</h1>
+{% if category.description %}
+<p style="text-align: center;">{{ category.description }}</p>
+{% endif %}
+</div>
+</div>
+
+<!-- Blog Content -->
+<div class="blog-container">
+<!-- Category Filter -->
+<div class="categories-filter">
+<a href="{% url 'v2:blog_list' %}" class="category-chip">All Posts</a>
+{% for cat in categories %}
+<a href="{% url 'v2:blog_category' cat.slug %}" class="category-chip {% if cat == category %}active{% endif %}">{{ cat.name }}</a>
+{% endfor %}
+</div>
+
+<!-- Blog Grid -->
+{% if posts %}
+<div class="blog-grid">
+{% for post in posts %}
+<a href="{% url 'v2:blog_post' post.slug %}" class="blog-card">
+<img src="{{ post.banner_image_url }}" alt="{{ post.title }}" class="blog-card-image">
+<div class="blog-card-content">
+<span class="blog-card-category">{{ category.name }}</span>
+<h3 class="blog-card-title">{{ post.title }}</h3>
+<p class="blog-card-excerpt">{{ post.excerpt|truncatewords:25 }}</p>
+<div class="blog-card-meta">
+<span>{% if post.author %}{{ post.author.get_full_name|default:post.author.username }}{% endif %}</span>
+<span>{{ post.published_at|date:"M d, Y" }}</span>
+</div>
+</div>
+</a>
+{% endfor %}
+</div>
+{% else %}
+<div class="no-posts">
+<p>No blog posts in this category yet.</p>
+<a href="{% url 'v2:blog_list' %}" style="color:#c43a30;text-decoration:underline;font-weight:600;">View all posts</a>
+</div>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const body = document.body;
+const nav = document.querySelector('nav');
+const menuWrapper = document.querySelector('.menu-wrapper');
+let hideTimeout;
+
+// Function to show menu
+function showMenu() {
+  if (window.innerWidth > 1200) {
+    clearTimeout(hideTimeout);
+    body.classList.add('nav-open');
+  }
+}
+
+// Function to hide menu with delay
+function hideMenu() {
+  if (window.innerWidth > 1200) {
+    hideTimeout = setTimeout(() => {
+      body.classList.remove('nav-open');
+    }, 100);
+  }
+}
+
+// Add event listeners to nav
+if (nav) {
+  nav.addEventListener('mouseenter', showMenu);
+  nav.addEventListener('mouseleave', hideMenu);
+}
+
+// Add event listeners to menu wrapper
+if (menuWrapper) {
+  menuWrapper.addEventListener('mouseenter', showMenu);
+  menuWrapper.addEventListener('mouseleave', hideMenu);
+}
+</script>
+{% endblock %}

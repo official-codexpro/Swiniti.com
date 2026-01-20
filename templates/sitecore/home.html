@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Swaniti Initiative{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-warm-800">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=2000&q=80" alt="Community Transformation" class="w-full h-full object-cover opacity-20">
+    </div>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/75 to-warm-900/85"></div>
+
+    <!-- Content -->
+    <div class="relative w-full container-custom py-20">
+        <div class="max-w-5xl text-white">
+            <h1 class="heading-xl text-white mb-8 animate-fade-in">
+                Transforming Communities Through Evidence-Based Policy
+            </h1>
+            <p class="text-2xl md:text-3xl mb-12 text-white/90 leading-relaxed max-w-3xl">
+                We empower governments and communities to create lasting change through rigorous research and innovative solutions.
+            </p>
+            <a href="{% url 'sitecore:impact' %}" class="btn bg-white text-primary-700 hover:bg-warm-50 inline-block shadow-xl">
+                Our Impact
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Metrics Section -->
+<section class="section-padding bg-accent-200">
+    <div class="container-custom">
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div class="text-center">
+                <div class="stat-value mb-4">165Mn+</div>
+                <div class="stat-label">Funds Mobilised</div>
+            </div>
+            <div class="text-center">
+                <div class="stat-value mb-4">35+</div>
+                <div class="stat-label">Policies Reformed</div>
+            </div>
+            <div class="text-center">
+                <div class="stat-value mb-4">8+</div>
+                <div class="stat-label">Global Countries</div>
+            </div>
+            <div class="text-center">
+                <div class="stat-value mb-4">23</div>
+                <div class="stat-label">Active Projects</div>
+            </div>
+        </div>
+
+        <!-- Additional Metrics -->
+        <div class="text-center mt-16 pt-12 border-t-2 border-secondary-300">
+            <div class="stat-value text-4xl md:text-5xl mb-4">70+</div>
+            <div class="stat-label">Global Collaborations and Partnerships</div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="section-label text-center">ABOUT US</div>
+            <h2 class="heading-lg mb-8">Who We Are</h2>
+            <p class="text-xl md:text-2xl text-warm-700 leading-relaxed mb-10">
+                At Swaniti, we have a deep understanding of how to leverage political economy to drive scalable and long-term change in energy transition. Working globally, we operate at the intersection of climate, governance and community to prompt action, unlock critical resources, and build agency amongst local stakeholders.
+            </p>
+            <a href="{% url 'sitecore:page_detail' slug='about' %}" class="btn btn-primary">
+                Learn More
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Our Approach Section -->
+<section class="section-padding bg-accent-100">
+    <div class="container-custom">
+        <!-- Section Header -->
+        <div class="text-center max-w-4xl mx-auto mb-20">
+            <div class="section-label">OUR APPROACH</div>
+            <h2 class="heading-lg mb-6">How We Work</h2>
+        </div>
+
+        <!-- Approach Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+            <!-- Systemic Reforms -->
+            <div class="text-center">
+                <div class="feature-icon mx-auto bg-secondary-100">
+                    <svg class="w-10 h-10 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-warm-900 mb-4">Systemic Reforms</h3>
+                <p class="text-lg text-warm-700 leading-relaxed">
+                    Our work is rooted in improving the lives of the most vulnerable and disadvantaged through a systemic approach.
+                </p>
+            </div>
+
+            <!-- Unlocking Willingness -->
+            <div class="text-center">
+                <div class="feature-icon mx-auto bg-secondary-100">
+                    <svg class="w-10 h-10 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1721 9z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-warm-900 mb-4">Unlocking Willingness</h3>
+                <p class="text-lg text-warm-700 leading-relaxed">
+                    Swaniti's key area of focus is the political economy. Swaniti's core work consists in unlocking public funds by influencing stakeholders and activities in the political economy.
+                </p>
+            </div>
+
+            <!-- Strengthening Public Service -->
+            <div class="text-center">
+                <div class="feature-icon mx-auto bg-secondary-100">
+                    <svg class="w-10 h-10 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-warm-900 mb-4">Strengthening Public Service Delivery</h3>
+                <p class="text-lg text-warm-700 leading-relaxed">
+                    We work across the global south in economically disadvantaged geographies for the strongest impact.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Global Operations Map Section -->
+<section class="section-padding bg-primary-600 text-white">
+    <div class="container-custom">
+        <div class="text-center max-w-4xl mx-auto mb-16">
+            <div class="section-label text-white/80">GLOBAL REACH</div>
+            <h2 class="heading-lg text-white mb-6">Our Global Operations</h2>
+            <p class="text-xl md:text-2xl text-white/90">
+                Working across 8+ countries with local stakeholders to drive sustainable change
+            </p>
+        </div>
+
+        <!-- Map Placeholder - Link to Globe Page -->
+        <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl" style="height: 500px;">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center px-6">
+                    <svg class="w-20 h-20 md:w-28 md:h-28 mx-auto mb-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-xl md:text-2xl text-white mb-8">View our interactive global presence map</p>
+                    <a href="{% url 'sitecore:globe' %}" class="btn bg-white text-primary-700 hover:bg-warm-50">
+                        Explore Interactive Globe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-accent-200">
+    <div class="container-custom">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="section-label">PARTNER WITH US</div>
+            <h2 class="heading-lg text-warm-900 mb-8">
+                Together, We Can Create Lasting Change
+            </h2>
+            <p class="text-2xl md:text-3xl text-warm-800 mb-12 leading-relaxed max-w-3xl mx-auto">
+                Partner with us to drive evidence-based policy and sustainable development
+            </p>
+            <a href="{% url 'sitecore:contact' %}" class="btn btn-primary">
+                Get in Touch
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,1037 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}{{ centre.full_name }} - Swaniti{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Centre Detail Page Styling */
+body {
+  font-family: 'Inter var', sans-serif;
+}
+
+.centre-hero {
+  height: 75vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.centre-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(255,71,71,0.85));
+  z-index: 1;
+}
+
+.centre-hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 80px 80px;
+  color: #FFF;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.centre-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.centre-hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.centre-hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 900px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.centre-content {
+  padding: 80px 5%;
+  background: #fff;
+}
+
+.centre-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.content-section {
+  margin-bottom: 70px;
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  color: #c43a30;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: #c43a30;
+  border-radius: 2px;
+}
+
+.content-text {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* HTML Content Styling */
+.html-content h3 {
+  color: #1a1a1a;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 50px 0 20px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content h3:first-child {
+  margin-top: 0;
+}
+
+.html-content h4 {
+  color: #c43a30;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 35px 0 18px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content h5 {
+  color: #1a1a1a;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 28px 0 15px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content p {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content ul {
+  margin: 20px 0 25px 25px;
+  line-height: 1.9;
+}
+
+.html-content ul li {
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 17px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.html-content em {
+  color: #666;
+  font-style: italic;
+}
+
+/* Feature Box */
+.feature-box {
+  background: #f8f9fa;
+  border-left: 4px solid #c43a30;
+  padding: 30px;
+  margin: 30px 0;
+  border-radius: 8px;
+}
+
+.feature-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .centre-hero {
+    height: 60vh;
+  }
+
+  .centre-hero-content {
+    padding: 0 40px 60px;
+  }
+
+  .centre-hero h1 {
+    font-size: 42px;
+  }
+
+  .centre-hero p {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .html-content h3 {
+    font-size: 24px;
+  }
+
+  .html-content h4 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .centre-hero {
+    height: 50vh;
+  }
+
+  .centre-hero-content {
+    padding: 0 20px 40px;
+  }
+
+  .centre-hero h1 {
+    font-size: 32px;
+  }
+
+  .centre-hero p {
+    font-size: 16px;
+  }
+
+  .centre-content {
+    padding: 50px 20px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+}
+
+/* about gcid start {aak}*/
+.premium-faq-section {
+    --brand-red: #c43a30;
+    --brand-orange: #ff7637;
+    --text-black: #111111;
+    --text-gray: #555555;
+    
+    width: 100%;
+    padding: 6rem 2rem;
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.faq-content-box {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Header Styling */
+.faq-header {
+    margin-bottom: 3rem;
+    border-left: 5px solid var(--brand-red); /* Red Accent */
+    padding-left: 20px;
+}
+
+.faq-header h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-black);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.faq-header p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Accordion Items */
+.premium-accordion-item {
+    border-bottom: 1px solid #eee;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.premium-accordion-item:last-child {
+    border-bottom: none;
+}
+
+/* Orange Side Bar (Hidden by default) */
+.premium-accordion-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--brand-orange);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.premium-accordion-item.active::before {
+    opacity: 1;
+}
+
+/* Button Trigger */
+.accordion-trigger {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 15px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-black);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease, padding 0.3s ease;
+    outline: none;
+    font-family: inherit; /* Inherits your site's font */
+}
+
+.accordion-trigger:hover {
+    color: var(--brand-red);
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #ccc;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-trigger:hover .icon,
+.premium-accordion-item.active .icon {
+    color: var(--brand-red);
+}
+
+/* Content Area */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    padding-left: 15px;
+}
+
+.content p {
+    padding: 0 0 2rem 0;
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin: 0;
+    width: 95%;
+}
+
+/* Active State */
+.premium-accordion-item.active .icon {
+    transform: rotate(45deg);
+}
+
+.premium-accordion-item.active .content {
+    opacity: 1;
+}
+
+.premium-accordion-item.active .accordion-trigger {
+    color: var(--brand-red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-faq-section { padding: 4rem 1.5rem; }
+    .faq-header h3 { font-size: 2rem; }
+    .accordion-trigger { font-size: 1.1rem; }
+}
+/*gcid end */
+
+/*clef page start {aak}*/
+/* Scoped Wrapper */
+.gcdi-premium-wrapper {
+    /* Palette Variables */
+    --p-red: #c43a30;
+    --p-orange: #ff7637;
+    --p-yellow: #FFF3C2;
+    --p-black: #111111;
+    --p-gray: #555555;
+    --p-light: #f9f9f9;
+    
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--p-black);
+}
+
+/* --- COMMON HEADERS --- */
+.gcdi-premium-wrapper h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.section-header {
+    margin: 4rem 0 2rem 0;
+    text-align: left;
+}
+
+.section-header .header-line {
+    width: 60px;
+    height: 4px;
+    background: var(--p-red);
+    margin-top: 10px;
+}
+
+/* --- SECTION 1: INTRO GRID --- */
+.gcdi-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.gcdi-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+}
+
+.card-subtitle {
+    color: var(--p-gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Lists styling */
+.premium-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.premium-list li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 0;
+}
+
+.premium-list li strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--p-black);
+}
+
+.premium-list li span {
+    color: var(--p-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: block;
+}
+
+/* Add Red accent to left of list items */
+.premium-list li {
+    border-left: 3px solid var(--p-orange);
+    padding-left: 15px;
+}
+
+.tick-list li {
+    border-left: 3px solid var(--p-red);
+}
+
+/* --- SECTION 2: PROJECTS ACCORDION --- */
+.project-accordion {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    padding: 1rem 2rem;
+}
+
+.project-item {
+    border-bottom: 1px solid #eee;
+}
+
+.project-item:last-child { border-bottom: none; }
+
+.project-trigger {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--p-black);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.project-trigger:hover { color: var(--p-red); }
+
+.project-trigger .icon {
+    font-size: 1.5rem;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.project-item.active .project-trigger { color: var(--p-red); }
+.project-item.active .icon { transform: rotate(45deg); color: var(--p-red); }
+
+.project-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.text-pad { padding-bottom: 2rem; }
+.text-pad p { color: var(--p-gray); line-height: 1.7; margin-bottom: 1rem; }
+
+/* --- SECTION 3: APPROACH GRID --- */
+.gcdi-approach-section p { color: var(--p-gray); max-width: 600px; }
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.approach-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+}
+
+.approach-box:hover { transform: translateY(-5px); }
+
+/* Top Borders using Palette */
+.accent-red { border-top: 5px solid var(--p-red); }
+.accent-orange { border-top: 5px solid var(--p-orange); }
+.accent-dark { border-top: 5px solid var(--p-black); }
+
+.approach-box h4 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.box-intro {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    min-height: 60px; /* Aligns lists */
+}
+
+.approach-box ul {
+    padding-left: 1.2rem;
+    color: var(--p-gray);
+}
+
+.approach-box ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .gcdi-intro-grid, .approach-grid {
+        grid-template-columns: 1fr;
+    }
+    .gcdi-card, .approach-box {
+        padding: 1.5rem;
+    }
+}
+/* clef page end*/
+
+
+/*Centre for Sub-National Engagement {aak}*/
+/* Scoped Variables for this Section */
+.premium-projects-section {
+    --brand-red: #c43a30;
+    --brand-orange: #ff7637;
+    --brand-yellow: #FFF3C2;
+    --text-black: #111111;
+    --text-gray: #555555;
+    
+    width: 100%;
+    padding: 6rem 2rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+.projects-content-box {
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Header */
+.projects-header h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-black);
+    margin-bottom: 0.5rem;
+}
+
+.header-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--brand-red); /* Red Palette Accent */
+    margin-bottom: 3rem;
+}
+
+/* Accordion Item */
+.project-item {
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+/* Vertical Orange Accent Bar (Hidden) */
+.project-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--brand-orange);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-item.active::before {
+    opacity: 1;
+}
+
+/* Trigger Button */
+.project-trigger {
+    width: 100%;
+    text-align: left;
+    padding: 2rem 15px;
+    background: none;
+    border: none;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-black);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+    outline: none;
+}
+
+.project-trigger:hover {
+    color: var(--brand-red);
+}
+
+/* Icon */
+.icon {
+    font-size: 1.5rem;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.project-item.active .icon {
+    transform: rotate(45deg);
+    color: var(--brand-red);
+}
+
+.project-item.active .project-trigger {
+    color: var(--brand-red);
+}
+
+/* Hidden Content Wrapper */
+.project-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth easing */
+    opacity: 0;
+    background: #fafafa; /* Very slight contrast for inner content */
+}
+
+.project-item.active .project-details {
+    opacity: 1;
+}
+
+/* Inner Content Styling */
+.details-inner {
+    padding: 0 2rem 2rem 2rem;
+}
+
+.main-desc {
+    color: var(--text-black);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+/* 2-Column Grid */
+.sub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.grid-col h5 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--brand-red); /* Red Headers */
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+/* List Styling */
+.grid-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.grid-col ul li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 12px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Custom Bullet Points */
+.grid-col ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--brand-orange); /* Orange Bullets */
+    border-radius: 50%;
+}
+
+.grid-col ul li strong {
+    color: var(--text-black);
+    font-weight: 600;
+}
+
+/* Footer Quote */
+.projects-footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--brand-yellow); /* Yellow Background */
+    border-left: 4px solid var(--brand-red);
+    border-radius: 0 8px 8px 0;
+}
+
+.projects-footer p {
+    margin: 0;
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sub-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .project-trigger { font-size: 1.1rem; }
+    .details-inner { padding: 0 1rem 1.5rem 1rem; }
+}
+/* section Centre for Sub-National Engagement styling end */
+
+/*Centre for Green Livelihood start {aak}*/
+/* Scoped Variables */
+.premium-faq-section {
+    --brand-red: #c43a30;
+    --brand-orange: #ff7637;
+    --text-black: #111111;
+    --text-gray: #555555;
+    
+    width: 100%;
+    padding: 6rem 2rem;
+    background-color: #ffffff; /* White Background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.faq-content-box {
+    width: 100%;
+    max-width: 900px;
+    /* Optional Shadow for the card look */
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.03); */
+}
+
+/* Header */
+.faq-header {
+    margin-bottom: 3rem;
+    border-left: 5px solid var(--brand-red);
+    padding-left: 20px;
+}
+
+.faq-header h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-black);
+    margin: 0 0 0.5rem 0;
+}
+
+.faq-header p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Accordion Items */
+.premium-accordion-item {
+    border-bottom: 1px solid #eee;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Orange Side Bar (Hidden) */
+.premium-accordion-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--brand-orange);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.premium-accordion-item.active::before {
+    opacity: 1;
+}
+
+/* Trigger Button */
+.accordion-trigger {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 15px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-black);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.accordion-trigger:hover {
+    color: var(--brand-red);
+}
+
+/* Icon */
+.icon {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #ccc;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.premium-accordion-item.active .icon {
+    transform: rotate(45deg);
+    color: var(--brand-red);
+}
+
+/* Content */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    padding-left: 15px;
+}
+
+.premium-accordion-item.active .content {
+    opacity: 1;
+}
+
+/* Paragraphs */
+.content p {
+    padding: 0 0 2rem 0;
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin: 0;
+    width: 95%;
+}
+
+/* List Styling inside Accordion */
+.faq-list {
+    margin: 0;
+    padding: 0 0 2rem 1rem;
+    color: var(--text-gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.faq-list li {
+    margin-bottom: 10px;
+}
+
+.faq-list strong {
+    color: var(--text-black);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-faq-section { padding: 4rem 1.5rem; }
+    .faq-header h3 { font-size: 2rem; }
+    .accordion-trigger { font-size: 1.1rem; }
+}
+/*Centre for Green Livelihood end {aak}*/
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Centre Hero Section with Navigation -->
+{% if centre.slug == 'gcdi' %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/4A8B3991.JPG' %}');">
+{% elif centre.slug == 'clefs' %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/glimpse.JPG' %}');">
+{% elif centre.slug == 'centre-for-sub-national-engagement' %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/aadhaar.jpg' %}');">
+{% else %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/IMG_5755.jpeg' %}');">
+{% endif %}
+
+<!--hero section start {aak}-->
+<div class="hero" style="height:82vh;background:url('{% static 'v2/images/glimpse.JPG' %}') center/cover no-repeat;position:relative;font-family:'Inter var',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:0;"></div></div>    
+<!--hero section end {aak}-->
+
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+  <div class="centre-hero-overlay"></div>
+  <div class="centre-hero-content">
+    <div class="centre-badge">Centre of Excellence</div>
+    <h1>{{ centre.full_name }}</h1>
+    {% if centre.tagline %}
+    <p>{{ centre.tagline }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Centre Content Section -->
+<section class="centre-content">
+  <div class="centre-container">
+
+    {% if centre.description %}
+    <div class="content-section">
+      <h2 class="section-title">About {{ centre.name }}</h2>
+      <p class="content-text">{{ centre.description }}</p>
+    </div>
+    {% endif %}
+
+    {% if centre.about_text %}
+    <div class="content-section">
+      <h2 class="section-title">About the Centre</h2>
+      <p class="content-text">{{ centre.about_text }}</p>
+    </div>
+    {% endif %}
+
+    {% if centre.what_we_do %}
+    <div class="content-section html-content">
+      {{ centre.what_we_do|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.what_makes_unique %}
+    <div class="content-section html-content">
+      {{ centre.what_makes_unique|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.approach %}
+    <div class="content-section html-content">
+      {{ centre.approach|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.areas_of_work %}
+    <div class="content-section html-content">
+      {{ centre.areas_of_work|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.projects %}
+    <div class="content-section html-content">
+      {{ centre.projects|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.impact %}
+    <div class="content-section">
+      <h2 class="section-title">Impact</h2>
+      <p class="content-text">{{ centre.impact }}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

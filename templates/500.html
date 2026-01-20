@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Server Error - Swaniti Initiative{% endblock %}
+
+{% block content %}
+<section class="section-padding bg-warm-50 min-h-[70vh] flex items-center">
+    <div class="container-custom">
+        <div class="max-w-2xl mx-auto text-center">
+            <!-- Error Icon -->
+            <div class="mb-8">
+                <div class="inline-flex items-center justify-center w-32 h-32 bg-red-100 rounded-full">
+                    <span class="text-6xl font-bold text-red-600 font-heading">500</span>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <h1 class="heading-lg mb-6">Server Error</h1>
+            <p class="text-xl text-warm-600 mb-8 leading-relaxed">
+                We're sorry, but something went wrong on our end. Our team has been notified and is working to fix the issue.
+            </p>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'sitecore:home' %}" class="btn btn-primary">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    Go to Homepage
+                </a>
+                <button onclick="window.history.back()" class="btn btn-outline">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Go Back
+                </button>
+            </div>
+
+            <!-- Contact Support -->
+            <div class="mt-12 pt-8 border-t border-warm-200">
+                <p class="text-warm-600 mb-4">If the problem persists, please contact our support team:</p>
+                <a href="mailto:info@swaniti.in" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    info@swaniti.in
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Links -->
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-md mb-8 text-center">Explore Our Website</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="{% url 'sitecore:centers_list' %}" class="group p-6 bg-warm-50 rounded-2xl hover:bg-primary-50 transition-all duration-300 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-warm-900 group-hover:text-primary-600 transition-colors duration-200">
+                        Our Centers
+                    </h3>
+                </a>
+
+                <a href="{% url 'sitecore:blog_index' %}" class="group p-6 bg-warm-50 rounded-2xl hover:bg-primary-50 transition-all duration-300 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-warm-900 group-hover:text-primary-600 transition-colors duration-200">
+                        Our Blog
+                    </h3>
+                </a>
+
+                <a href="{% url 'sitecore:page_detail' slug='contact' %}" class="group p-6 bg-warm-50 rounded-2xl hover:bg-primary-50 transition-all duration-300 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-warm-900 group-hover:text-primary-600 transition-colors duration-200">
+                        Contact Us
+                    </h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,1017 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}About Us - Swaniti{% endblock %}
+
+{% block content %}
+
+<!--hero section start {aak}-->
+<div class="hero">
+  <div class="overlay-bg"></div>
+  <div class="hero-text">
+    <h1>Building Stronger Communities with Data-Driven Solutions</h1>
+    <p>We empower governments and communities to create lasting change through rigorous research and innovative
+      solutions</p>
+  </div>
+</div>
+
+<style>
+  .hero {
+    margin-bottom: 5%;
+    height: 82vh;
+    position: relative;
+    background:url('{% static ' v2/images/IMG_5191.JPG' %}') center/cover no-repeat;
+    font-family: 'Inter var', sans-serif;
+  }
+
+  .overlay-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 48%;
+    left: 80px;
+    transform: translateY(-50%);
+    max-width: 620px;
+    color: #fff;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: .95;
+  }
+
+  /* ------ RESPONSIVE (SHORT FORMAT) ------ */
+  @media(max-width:1200px) {
+    .hero-text {
+      left: 60px;
+      max-width: 75%;
+    }
+
+    .hero-text h1 {
+      font-size: 34px;
+    }
+
+    .hero-text p {
+      font-size: 15px;
+    }
+
+    .hero-text a {
+      padding: 9px 18px;
+      font-size: 13px;
+    }
+  }
+
+  @media(max-width:900px) {
+    .hero {
+      height: 65vh;
+    }
+
+    .hero-text {
+      left: 35px;
+      max-width: 85%;
+    }
+
+    .hero-text h1 {
+      font-size: 30px;
+    }
+
+    .hero-text p {
+      font-size: 14px;
+    }
+
+    .hero-text a {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+  }
+
+  @media(max-width:600px) {
+    .hero {
+      height: 90vh;
+    }
+
+    .hero-text {
+      left: 22px;
+      max-width: 90%;
+      transform: translateY(-42%);
+    }
+
+    .hero-text h1 {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .hero-text p {
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero-text a {
+      padding: 7px 14px;
+      font-size: 11px;
+    }
+  }
+</style>
+<!--end nav hero section-->
+
+<!--Start About us section-->
+<section
+  style="padding:100px 0;background:#fff;text-align:center;font-family:'Inter var',sans-serif; margin-top: -5% !important; margin-bottom: -5% !important;">
+  <div style="max-width:800px;margin:0 auto;padding:0 20px;">
+    <h2 style="font-size:clamp(28px,4vw,40px);font-weight:800;color:#1a1a1a;letter-spacing:3px;margin-bottom:15px;">
+      About us</h2>
+    <div style="width:90px;height:3px;background:#c43a30;margin:15px auto 60px;border-radius:2px;"></div>
+    <p style="font-size:19px;color:#000;line-height:1.7;margin-bottom:50px;font-weight:300;">At <strong
+        style="font-weight:600;color:#c43a30;">Swaniti</strong>, we have a deep understanding of how to leverage <strong
+        style="font-weight:600;color:#c43a30;">political economy</strong> to drive scalable and long-term change in
+      <strong style="font-weight:600;color:#c43a30;">energy transition</strong>. Working globally, we operate at the
+      intersection of <strong style="font-weight:600;color:#c43a30;">climate, governance, and community</strong> to
+      prompt action, unlock critical resources, and build agency amongst local stakeholders.
+    </p>
+  </div>
+</section>
+<style>
+  @media(max-width:991px) {
+    section:nth-child(2) {
+      padding: 80px 10px !important;
+    }
+
+    section:nth-child(2)p {
+      font-size: 17px !important;
+      margin-bottom: 30px !important;
+    }
+  }
+
+  @media(max-width:600px) {
+    section:nth-child(2)h2 {
+      font-size: 22px !important;
+    }
+  }
+</style>
+<!-- end about us section -->
+
+<!-- START OUR APPROACH SECTION -->
+<section
+  style="padding:100px 20px;background:#fff;font-family:'Inter var',sans-serif;text-align:center;overflow:hidden; margin-bottom: 4% !important;">
+  <div style="max-width:1150px;margin:0 auto;">
+    <h2 style="font-size:clamp(28px,4vw,40px);font-weight:800;color:#1a1a1a;letter-spacing:3px;margin-bottom:15px;">Our
+      Approach</h2>
+    <div style="width:90px;height:3px;background:#c43a30;margin:15px auto 60px;border-radius:2px;"></div>
+    <p style="max-width:720px;margin:0 auto 70px;font-size:16px;line-height:1.8;color:#555;">We accelerate the clean
+      energy transition by building robust governance delivery mechanisms and ensuring every initiative is rooted in
+      inclusive development.</p>
+
+    <div class="impact-grid">
+      <!-- CARD 1 -->
+      <div class="flip-card-container">
+        <div class="flip-card">
+          <div class="card-front"><img src="/media/event_gallery/Swanitifacilitated.jpg">
+            <div class="overlay">
+              <h3>Systemic reforms</h3>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>Systemic reforms</h3>
+            <p>Our work is rooted in strengthening how programs are designed and delivered so that systems evolve to
+              address challenges more effectively over time.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="flip-card-container">
+        <div class="flip-card">
+          <div class="card-front"><img src="/media/event_gallery/willingness_to_action.jpeg">
+            <div class="overlay">
+              <h3>Willingness to action</h3>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>Willingness to action</h3>
+            <p>While several political economy leaders are keen to enable large scale sustainable energy transition we
+              ensure that the public resources to do so support this thought.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="flip-card-container">
+        <div class="flip-card">
+          <div class="card-front"><img src="/media/event_gallery/Reimagining Solutions.jpeg">
+            <div class="overlay">
+              <h3>Reimagining Solutions</h3>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>Reimagining Solutions</h3>
+            <p>We take a whole-of-society approach to identify innovative, cross-cutting pathways for large-scale energy
+              transition, recognizing that lasting change requires action across institutions, markets, and communities.
+            </p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .impact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .flip-card-container {
+      width: 320px;
+      height: 420px;
+      perspective: 1200px;
+      position: relative;
+    }
+
+    .flip-card {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform .9s cubic-bezier(.4, .2, .2, 1);
+    }
+
+    .flip-card-container:hover .flip-card {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .flip-card-container:hover .card-front img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(0deg, rgba(0, 0, 0, .75), transparent);
+      color: #fff;
+      padding: 22px;
+      text-align: left;
+    }
+
+    .overlay h3 {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .card-back {
+      background: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 35px;
+      border: 1px solid #f0f0f0;
+      text-align: left;
+    }
+
+    .card-back h3 {
+      font-size: 20px;
+      color: #c43a30;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .card-back p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      text-align: justify;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #c43a30;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #e13a3a;
+      box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+    }
+
+    @media(max-width:992px) {
+      .impact-grid {
+        gap: 25px;
+      }
+
+      .flip-card-container {
+        width: 90%;
+        max-width: 340px;
+        height: 400px;
+      }
+    }
+
+    @media(max-width:600px) {
+      .impact-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+      }
+
+      .flip-card-container {
+        width: 100%;
+        max-width: 360px;
+        height: 420px;
+      }
+
+      .card-back {
+        padding: 25px 20px;
+      }
+
+      .card-back h3 {
+        font-size: 18px;
+      }
+
+      .card-back p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</section>
+
+<!-- END OUR APPROACH SECTION -->
+
+
+<!-- OUR OPERATIONAL MODEL START -->
+<section
+  style="padding:100px 20px;background:#fff;text-align:center;font-family:'Inter var',sans-serif;margin-top: -6%">
+  <div style="max-width:1200px;margin:auto">
+    <h2
+      style="color:#1a1a1a;font-size:36px;font-weight:700;margin-bottom:60px;text-transform:uppercase;letter-spacing:4px;position:relative;display:inline-block">
+      OUR MODEL<span
+        style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:3px;background:#c43a30"></span>
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;text-align:left">
+      <div class="card"
+        style="background:#fff;border:1px solid #e0e0e0;border-top:4px solid #c43a30;padding:25px;box-shadow:0 4px 6px rgba(0,0,0,0.05);transition:all .3s ease">
+        <h3
+          style="color:#1a1a1a;font-size:18px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">
+          1. Value Mapping</h3>
+        <p style="font-size:15px;color:#555;line-height:1.6;margin:0">We embed team members within communities,
+          government departments, and state-owned enterprises to identify gaps, risks, and opportunities.</p>
+      </div>
+      <div class="card"
+        style="background:#fff;border:1px solid #e0e0e0;border-top:4px solid #c43a30;padding:25px;box-shadow:0 4px 6px rgba(0,0,0,0.05);transition:all .3s ease">
+        <h3
+          style="color:#1a1a1a;font-size:18px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">
+          2. Technical Assistance</h3>
+        <p style="font-size:15px;color:#555;line-height:1.6;margin:0">We collaborate with governments and communities to
+          co-develop implementable solutions for large-scale energy transition.</p>
+      </div>
+      <div class="card"
+        style="background:#fff;border:1px solid #e0e0e0;border-top:4px solid #c43a30;padding:25px;box-shadow:0 4px 6px rgba(0,0,0,0.05);transition:all .3s ease">
+        <h3
+          style="color:#1a1a1a;font-size:18px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">
+          3. Connecting the Dots</h3>
+        <p style="font-size:15px;color:#555;line-height:1.6;margin:0">We build consortiums consisting of experts,
+          industries and civil society partners to drive coordinated and impactful action.</p>
+      </div>
+      <div class="card"
+        style="background:#fff;border:1px solid #e0e0e0;border-top:4px solid #c43a30;padding:25px;box-shadow:0 4px 6px rgba(0,0,0,0.05);transition:all .3s ease">
+        <h3
+          style="color:#1a1a1a;font-size:18px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">
+          4. Monitoring Impact</h3>
+        <p style="font-size:15px;color:#555;line-height:1.6;margin:0">We work closely with stakeholders to evaluate the
+          scale and effectiveness of our initiatives, ensuring measurable progress on the ground.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<!-- OUR OPERATIONAL MODEL END  -->
+
+
+
+<!--Our Partners section start-->
+<section style="font-family:'Lato',sans-serif;background:#fff;padding:80px 0;margin-top:40px;overflow:hidden">
+  <div style="text-align:center;margin-bottom:45px">
+    <h2 style="font-size:38px;font-weight:800;color:#1a1a1a;margin-bottom:6px">Our Partners</h2>
+    <p style="font-size:15px;color:#666">Collaborations with global development institutions and government bodies</p>
+    <div style="width:70px;height:3px;background:#c43a30;margin:14px auto;border-radius:2px"></div>
+  </div>
+
+  <div class="partners-carousel">
+    <div class="partners-track">
+
+      <div class="partner-box"><img src="{% static 'v2/logo/1.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/2.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/3.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/4.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/5.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/6.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/7.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/8.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/9.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/10.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/11.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/12.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/13.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/14.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/15.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/16.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/17.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/18.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/19.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/20.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/21.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/22.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/23.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/24.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/25.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/26.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/27.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/28.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/29.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/30.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/31.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/32.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/33.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/34.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/35.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/36.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/37.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/38.png' %}"></div>
+      <div class="partner-box"><img src="{% static 'v2/logo/39.png' %}"></div>
+    </div>
+  </div>
+
+  <style>
+    .partners-carousel {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .partners-track {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      width: max-content;
+      animation: scroll 32s linear infinite
+    }
+
+    .partner-box {
+      min-width: 180px;
+      padding: 22px 26px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+      transition: .3s;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .partner-box img {
+      height: 110px;
+      object-fit: contain;
+      transition: .3s
+    }
+
+    .partner-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 7px 20px rgba(0, 0, 0, .15)
+    }
+
+    .partner-box:hover img {
+      transform: scale(1.08)
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    @media(max-width:992px) {
+      .partners-track {
+        gap: 22px
+      }
+
+      .partner-box img {
+        height: 95px
+      }
+
+      .partner-box {
+        min-width: 160px
+      }
+    }
+
+    @media(max-width:600px) {
+      .partners-track {
+        gap: 16px
+      }
+
+      .partner-box {
+        min-width: 130px;
+        padding: 16px 20px
+      }
+
+      .partner-box img {
+        height: 75px
+      }
+    }
+  </style>
+
+</section>
+
+<!--Our Partners section end-->
+
+
+
+
+<!-- OUR JOURNEY SECTION START {aak} -->
+<section style="font-family:'Lato',sans-serif;background:#fff;padding:100px 20px;overflow:hidden;position:relative;">
+  <div style="text-align:center;margin-bottom:80px;">
+    <h2 style="font-size:44px;font-weight:900;color:#000;">Our Journey</h2>
+    <p style="font-size:16px;color:#555;">From a small vision to a global organization driving evidence-based policy
+      change</p>
+    <h3 style="font-size:28px;color:#c43a30;margin-top:60px;">Milestones</h3>
+    <div style="width:70px;height:3px;background:#ff7637;margin:12px auto;border-radius:2px;"></div>
+  </div>
+
+  <div style="position:relative;max-width:1100px;margin:0 auto;">
+    <div id="timeline-line"
+      style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:6px;height:100%;background:#fff;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.08);">
+      <div id="timeline-progress"
+        style="position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(180deg,#c43a30,#ff7637);box-shadow:0 0 15px rgba(255,71,71,.5);border-radius:10px;transition:height .6s ease-out;">
+      </div>
+    </div>
+
+    <style>
+      .timeline-item {
+        position: relative;
+        margin-bottom: 110px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 2;
+      }
+
+      .timeline-content {
+        width: 42%;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .07);
+        transition: .4s;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+      }
+
+      .timeline-content h4 {
+        font-size: 20px;
+        color: #c43a30;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .timeline-content p {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+      }
+
+      .timeline-icon {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border: 4px solid #c43a30;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+      }
+
+      .timeline-icon span {
+        color: #c43a30;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .connector {
+        position: absolute;
+        top: 30px;
+        width: 60px;
+        height: 2px;
+        background: #ff7637;
+      }
+
+      .timeline-item:nth-child(odd) .connector {
+        right: calc(50% + 30px);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: auto;
+        text-align: right;
+        padding-right: 35px;
+      }
+
+      .timeline-item:nth-child(even) .connector {
+        left: calc(50% + 30px);
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: auto;
+        text-align: left;
+        padding-left: 35px;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .timeline-item {
+        opacity: 0;
+        transition: opacity .6s ease;
+      }
+
+      .timeline-item.visible {
+        animation: fadeUp .8s ease forwards;
+        opacity: 1;
+      }
+
+      @media(max-width:992px) {
+        .timeline-item {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 80px;
+          padding-left: 50px;
+        }
+
+        .timeline-content {
+          width: calc(100% - 70px);
+          text-align: left !important;
+          margin: 0 !important;
+          padding: 20px;
+        }
+
+        .timeline-icon {
+          left: 0 !important;
+          transform: none !important;
+          margin-bottom: 20px;
+        }
+
+        .connector {
+          display: none;
+        }
+
+        #timeline-line {
+          left: 20px !important;
+          transform: none !important;
+          width: 4px;
+        }
+      }
+    </style>
+
+    {% for milestone in milestones %}
+    <div class="timeline-item">
+      <div class="timeline-icon"><span>{{ milestone.year }}</span></div>
+      <div class="connector"></div>
+      <div class="timeline-content">
+        <h4>{{ milestone.title }}</h4>
+        <p>{{ milestone.description }}</p>
+      </div>
+    </div>
+    {% empty %}
+    <div class="timeline-item">
+      <div class="timeline-icon"><span>2012</span></div>
+      <div class="connector"></div>
+      <div class="timeline-content">
+        <h4>Foundation</h4>
+        <p>Swaniti Global was established with a vision to bridge the gap between research and policy implementation.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-icon"><span>2020</span></div>
+      <div class="connector"></div>
+      <div class="timeline-content">
+        <h4>Centers of Excellence</h4>
+        <p>Launched specialized research centers driving focused policy research.</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const l = document.getElementById('timeline-progress');
+      if (l) { const r = l.parentElement.getBoundingClientRect(); const v = Math.min(Math.max(0, window.innerHeight - r.top), r.height); l.style.height = v + 'px'; }
+      document.querySelectorAll('.timeline-item').forEach(i => { if (i.getBoundingClientRect().top < window.innerHeight * .85) i.classList.add('visible'); });
+    });
+  </script>
+</section>
+<!-- OUR JOURNEY SECTION END-->
+
+
+<!--theory section start {aak}-->
+
+<style>
+  /* BASE & GLASS STYLING (LIGHT) */
+  .faq-i {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 20px 25px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+
+  /* Hover effects maintained for the box itself */
+  .faq-i:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  /* QUESTION/ANSWER STYLING */
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  /* Removed transition:transform .3s; for the icon */
+  .faq-ic {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    color: #fff;
+    background: #c43a30;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: 400;
+  }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease-out;
+  }
+
+  .faq-ans-p {
+    margin: 15px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  /* HEADING STYLING */
+  .h2-t {
+    color: #1a1a1a !important;
+  }
+
+  .p-s {
+    color: #555 !important;
+  }
+
+  .separator {
+    width: 50px;
+    height: 4px;
+    background: #c43a30;
+    margin-bottom: 28px;
+    border-radius: 2px;
+  }
+
+  /* RESPONSIVE STYLES (Slant Divider Fix Applied) */
+  @media (max-width: 768px) {
+    .sec {
+      background: linear-gradient(120deg, #f0f2f5 70%, #c43a30 50%) !important;
+      padding: 50px 15px !important;
+    }
+
+    .h2-t {
+      font-size: 30px !important;
+    }
+
+    .p-s {
+      font-size: 16px !important;
+    }
+
+    .faq-q {
+      font-size: 17px !important;
+    }
+
+    .faq-i {
+      padding: 15px 18px !important;
+    }
+
+    .separator {
+      width: 40px !important;
+    }
+  }
+</style>
+<section class="sec"
+  style="font-family:Inter,sans-serif;padding:85px 20px;background:linear-gradient(120deg,#ffffff 58%,#c43a30 50%);color:#000;">
+  <div style="max-width:900px;margin:auto;">
+    <h2 class="h2-t" style="font-size:40px;font-weight:800;margin:0 0 10px;">Our Theory of Changes</h2>
+    <p class="p-s" style="font-size:17px;line-height:1.7;max-width:700px;margin:0 0 25px;">
+      At Swaniti, we believe that tackling climate change requires more than just bold targets… it demands systems that
+      works for everyone, especially those most vulnerable to its impacts
+      We understand that climate change is not a future possibility – it is a present crisis, and its consequences are
+      not evenly distributed. Communities in the Global South, particularly those already living on the margins, are
+      bearing the brunt of an accelerating climate emergency.
+      From coal miners facing issues with just transition, to industries struggling to access green finances, and
+      farmers experiencing low yields due to erratic weather, all of these are deepening existing vulnerabilities and
+      testing the resilience of governance systems.
+    <div class="separator"></div>
+    <div id="faq-acc" style="display:flex;flex-direction:column;gap:16px;">
+      <div class="faq-i">
+        <div class="faq-q">Why Energy Transition Efforts Falter on the Ground <span class="faq-ic">+</span></div>
+        <div class="faq-a">
+          <p class="faq-ans-p">
+            <span>
+              While national and international commitments to clean energy and net-zero goals are growing,
+              implementation often falters on the ground because:
+            </span>
+          </p>
+
+          <ul class="faq-ans-p list-disc pl-5 mt-2">
+            <li>Limited technical capacity at the sub-national level</li>
+            <li>A lack of locally contextualised transition frameworks</li>
+            <li>Insufficient tools to monitor, evaluate, and deliver impact</li>
+          </ul>
+
+          <p class="faq-ans-p mt-2">
+            This is where Swaniti begins its work.
+          </p>
+        </div>
+
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">Beginning Where It Matters Most: The Community<span class="faq-ic">+</span></div>
+        <div class="faq-a">
+          <p class="faq-ans-p">
+            <span>
+              We start by engaging with those who are most affected – local leaders, frontline workers, and community
+              members. Their insights are not supplementary; they are central. Our first steps involve:
+
+            </span>
+          </p>
+
+          <ul class="faq-ans-p list-disc pl-5 mt-2">
+            <li>Listening to community experiences and aspirations</li>
+            <li>Mapping local assets and capacities</li>
+            <li>Identifying underutilized public resources that can enable a inclusive transition</li>
+          </ul>
+
+          <p class="faq-ans-p mt-2">
+            These insights inform a deeper understanding of what climate equity should look like on the ground. </p>
+        </div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">Co-creating Solutions from Within Communities <span class="faq-ic">+</span></div>
+        <div class="faq-a">
+          <p class="faq-ans-p">
+            <span>
+              We bring out solutions from within communities—By building a collaborative ecosystem that unlocks public
+              funds and resources and combines it with local partners and community leaders we build out sustainable
+              solutions.
+
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">Embedding Technical Capacity for Real-time Action<span class="faq-ic">+</span></div>
+        <div class="faq-a">
+          <p class="faq-ans-p">
+            <span>
+              Then comes the implementation. Our technical teams work closely with sub-national governments. We are
+              embedded within departments to support real-time planning, problem-solving and implementation. From
+              enabling solar deployment and improving climate finance access, to integrating resilience planning and
+              building local data systems. we help convert intent into impact.
+
+            </span>
+          </p>
+
+
+
+          <p class="faq-ans-p mt-2">
+            For us, climate action is not just about reducing emissions; it’s about building institutional capacity
+            (unlocking public funds and resources), empowering communities (bringing change through increased
+            representation), and enabling transformation (enabling action from key stakeholders) that reaches the last
+            mile. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const qBoxes = document.querySelectorAll('.faq-i');
+  qBoxes.forEach(box => {
+    box.onclick = () => {
+      const answer = box.querySelector('.faq-a');
+      // const icon = box.querySelector('.faq-ic'); <--- Icon variable kept for reference, but rotation logic removed
+      const isCurrentlyOpen = box.classList.contains('open');
+
+      // Close all boxes
+      qBoxes.forEach(otherBox => {
+        const otherAnswer = otherBox.querySelector('.faq-a');
+        // const otherIcon = otherBox.querySelector('.faq-ic');
+        otherAnswer.style.maxHeight = null;
+        // otherIcon.style.transform = "rotate(0deg)"; <--- Removed rotation
+        otherBox.classList.remove('open');
+      });
+
+      // Open the clicked box if it was not already open
+      if (!isCurrentlyOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 30 + "px";
+        // icon.style.transform = "rotate(45deg)"; <--- Removed rotation
+        box.classList.add('open');
+      }
+    };
+  });
+</script>
+<!--theory section end {aak}-->
+
+
+{% endblock %}

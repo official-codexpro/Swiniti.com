@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Page Not Found - Swaniti Initiative{% endblock %}
+
+{% block extra_css %}
+<style>
+    .error-number {
+        font-size: 8rem;
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, #F97316 0%, #fb923c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    @media (max-width: 768px) {
+        .error-number {
+            font-size: 5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="section-padding bg-gradient-to-br from-warm-50 via-white to-primary-light min-h-[70vh] flex items-center">
+    <div class="container-custom">
+        <div class="max-w-2xl mx-auto text-center">
+            <!-- Error Number -->
+            <div class="mb-8">
+                <h1 class="error-number mb-4">404</h1>
+            </div>
+
+            <!-- Error Message -->
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-warm-900 mb-4">
+                Page Not Found
+            </h2>
+            <p class="text-xl text-warm-600 mb-8 leading-relaxed">
+                Oops! The page you're looking for doesn't exist or has been moved.
+                Let's get you back on track.
+            </p>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'sitecore:home' %}" class="btn-primary inline-flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    Go to Homepage
+                </a>
+                <a href="{% url 'sitecore:blog_index' %}" class="btn-outline inline-flex items-center justify-center">
+                    Browse Our Blog
+                </a>
+            </div>
+
+            <!-- Search Suggestion -->
+            <div class="mt-12 pt-8 border-t border-warm-200">
+                <p class="text-warm-600 mb-4">Or try searching for what you're looking for:</p>
+                <form action="{% url 'sitecore:blog_index' %}" method="get" class="max-w-md mx-auto">
+                    <div class="relative">
+                        <input
+                            type="search"
+                            name="q"
+                            placeholder="Search..."
+                            class="w-full px-6 py-3 pl-12 bg-white border border-warm-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary-200 focus:border-primary-500 transition-all duration-200"
+                        >
+                        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Links -->
+<section class="section-padding bg-white">
+    <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-md mb-8 text-center">You Might Be Looking For</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="{% url 'sitecore:centers_list' %}" class="group p-6 bg-warm-50 rounded-2xl hover:bg-primary-50 transition-all duration-300 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-warm-900 group-hover:text-primary-600 transition-colors duration-200">
+                        Our Centers
+                    </h3>
+                </a>
+
+                <a href="{% url 'sitecore:impact' %}" class="group p-6 bg-warm-50 rounded-2xl hover:bg-primary-50 transition-all duration-300 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-warm-900 group-hover:text-primary-600 transition-colors duration-200">
+                        Our Impact
+                    </h3>
+                </a>
+
+                <a href="{% url 'sitecore:page_detail' slug='about' %}" class="group p-6 bg-warm-50 rounded-2xl hover:bg-primary-50 transition-all duration-300 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-warm-900 group-hover:text-primary-600 transition-colors duration-200">
+                        About Us
+                    </h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

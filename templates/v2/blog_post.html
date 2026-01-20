@@ -1,0 +1,496 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - Swaniti{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Blog Post Styles */
+.post-hero {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Inter var', sans-serif;
+}
+
+.post-category-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #c43a30;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.post-meta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.post-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 20px;
+    font-family: 'Inter var', sans-serif;
+}
+
+.post-content {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+.post-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+    color: #111;
+}
+
+.post-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 30px 0 15px 0;
+    color: #111;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+.post-content ul, .post-content ol {
+    margin: 20px 0;
+    padding-left: 40px;
+}
+
+.post-content li {
+    margin-bottom: 10px;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #c43a30;
+    padding-left: 30px;
+    margin: 30px 0;
+    font-style: italic;
+    color: #555;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 40px 0;
+    padding: 40px 0;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+.tag {
+    padding: 6px 14px;
+    background: #f5f5f5;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: #c43a30;
+    color: white;
+}
+
+.related-posts {
+    margin-top: 80px;
+}
+
+.related-posts h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.related-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+}
+
+.related-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.related-card-content {
+    padding: 20px;
+}
+
+.related-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.related-card-excerpt {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .post-content {
+        font-size: 16px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Banner Image Only -->
+<div class="hero" style="height:50vh;background:url('{{ post.banner_image_url }}') center/cover no-repeat;position:relative;font-family:'Inter var',sans-serif;">
+</div>
+
+<!-- Post Header (Title and Meta) -->
+<div style="background:white;padding:40px 10%;border-bottom:1px solid #e0e0e0;">
+  <div style="max-width:800px;margin:0 auto;">
+    {% if post.category %}
+    <span class="post-category-badge">{{ post.category.name }}</span>
+    {% endif %}
+    <h1 style="font-size:24px;font-weight:700;margin:20px 0;line-height:1.4;color:#111;text-align:justify;">{{ post.title }}</h1>
+    <div class="post-meta" style="color:#666;">
+      {% if post.author %}
+      <span><i class="fas fa-user"></i> {{ post.author.get_full_name|default:post.author.username }}</span>
+      {% endif %}
+      <span><i class="fas fa-calendar"></i> {{ post.published_at|date:"F d, Y" }}</span>
+    </div>
+  </div>
+</div>
+
+<!-- Post Content -->
+<div class="post-container">
+
+{% if password_required %}
+<!-- Password Protection Form -->
+<div style="max-width: 500px; margin: 0 auto; padding: 60px 30px; text-align: center;">
+    <div style="background: #f8f9fa; border-radius: 16px; padding: 50px 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+        <div style="margin-bottom: 30px;">
+            <svg style="width: 64px; height: 64px; color: #c43a30; margin: 0 auto 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+            <h2 style="font-size: 28px; font-weight: 800; color: #111; margin-bottom: 12px;">Protected Content</h2>
+            <p style="font-size: 16px; color: #666; line-height: 1.6;">This post is password protected. Please enter the password to view the content.</p>
+        </div>
+
+        {% if password_error %}
+        <div style="margin-bottom: 24px; padding: 14px; background: #fee; border: 1px solid #fcc; border-radius: 8px;">
+            <p style="color: #c33; font-weight: 600; margin: 0; font-size: 14px;">
+                <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
+            </p>
+        </div>
+        {% endif %}
+
+        <form method="post" style="text-align: left;">
+            {% csrf_token %}
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                Password
+            </label>
+            <input type="password" name="post_password" required autofocus
+                   style="width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: all 0.3s; box-sizing: border-box; margin-bottom: 20px;"
+                   placeholder="Enter password"
+                   onfocus="this.style.borderColor='#c43a30'"
+                   onblur="this.style.borderColor='#e0e0e0'">
+
+            <button type="submit"
+                    style="width: 100%; padding: 14px; background: #c43a30; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(255,71,71,0.2);"
+                    onmouseover="this.style.background='#e63939'; this.style.boxShadow='0 4px 12px rgba(255,71,71,0.3)'"
+                    onmouseout="this.style.background='#c43a30'; this.style.boxShadow='0 2px 8px rgba(255,71,71,0.2)'">
+                <i class="fas fa-unlock"></i> Unlock Content
+            </button>
+        </form>
+    </div>
+</div>
+{% else %}
+<!-- Regular Post Content -->
+<div class="post-content">
+{{ post.body|safe }}
+</div>
+{% endif %}
+
+{% if not password_required %}
+{% if post.tags.all %}
+<div class="post-tags">
+{% for tag in post.tags.all %}
+<span class="tag">{{ tag.name }}</span>
+{% endfor %}
+</div>
+{% endif %}
+
+<!-- Download Section -->
+{% if post.attachment or post.pdf_attachment_url %}
+<div style="margin: 50px 0; padding: 30px; background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+    <div style="flex: 1;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <svg style="width: 24px; height: 24px; color: #c43a30;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <h3 style="font-size: 20px; font-weight: 700; color: #111; margin: 0;">Resource Available</h3>
+        </div>
+        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.5;">
+            Download the full resource by providing your details below.
+        </p>
+    </div>
+    <button onclick="scrollToDownloadForm()" style="padding: 12px 28px; background: #c43a30; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; box-shadow: 0 2px 8px rgba(255,71,71,0.2);" onmouseover="this.style.background='#e63939'; this.style.boxShadow='0 4px 12px rgba(255,71,71,0.3)'" onmouseout="this.style.background='#c43a30'; this.style.boxShadow='0 2px 8px rgba(255,71,71,0.2)'">
+        <svg style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 6px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+        Download
+    </button>
+</div>
+
+<!-- Download Form -->
+<div id="downloadFormSection" style="display: none; margin: 50px 0; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="font-size: 24px; font-weight: 700; color: #111; margin: 0 0 8px 0;">Download Resource</h3>
+    <p style="font-size: 15px; color: #666; margin: 0 0 30px 0;">Please provide your information to access the resource.</p>
+
+    <!-- Success Message -->
+    <div id="formSuccessMessage" style="display: none; margin-bottom: 20px; padding: 16px; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; border-radius: 8px; display: flex; align-items: center;">
+        <svg style="width: 24px; height: 24px; margin-right: 12px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span style="font-weight: 600;">Your download will begin shortly!</span>
+    </div>
+
+    <!-- Error Message -->
+    <div id="formErrorMessage" style="display: none; margin-bottom: 20px; padding: 16px; background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; border-radius: 8px; display: flex; align-items: center;">
+        <svg style="width: 24px; height: 24px; margin-right: 12px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span id="formErrorText" style="font-weight: 600;">Please correct the errors and try again.</span>
+    </div>
+
+    <form id="downloadForm" method="post" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        {% csrf_token %}
+        <input type="hidden" name="post_slug" value="{{ post.slug }}">
+
+        <div style="grid-column: 1 / -1;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                Name <span style="color: #c43a30;">*</span>
+            </label>
+            <input type="text" name="name" id="form_name" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; transition: all 0.3s; box-sizing: border-box; font-family: 'Inter var', sans-serif;" placeholder="Your full name" onfocus="this.style.borderColor='#c43a30'" onblur="this.style.borderColor='#e0e0e0'">
+            <span style="color: #c43a30; font-size: 13px; display: none; margin-top: 4px;" id="form_name-error"></span>
+        </div>
+
+        <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                Organization
+            </label>
+            <input type="text" name="organization" id="form_organization" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; transition: all 0.3s; box-sizing: border-box; font-family: 'Inter var', sans-serif;" placeholder="Your organization (optional)" onfocus="this.style.borderColor='#c43a30'" onblur="this.style.borderColor='#e0e0e0'">
+            <span style="color: #c43a30; font-size: 13px; display: none; margin-top: 4px;" id="form_organization-error"></span>
+        </div>
+
+        <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                Role
+            </label>
+            <input type="text" name="role" id="form_role" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; transition: all 0.3s; box-sizing: border-box; font-family: 'Inter var', sans-serif;" placeholder="Your role/position (optional)" onfocus="this.style.borderColor='#c43a30'" onblur="this.style.borderColor='#e0e0e0'">
+            <span style="color: #c43a30; font-size: 13px; display: none; margin-top: 4px;" id="form_role-error"></span>
+        </div>
+
+        <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                Email <span style="color: #c43a30;">*</span>
+            </label>
+            <input type="email" name="email" id="form_email" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; transition: all 0.3s; box-sizing: border-box; font-family: 'Inter var', sans-serif;" placeholder="your.email@example.com" onfocus="this.style.borderColor='#c43a30'" onblur="this.style.borderColor='#e0e0e0'">
+            <span style="color: #c43a30; font-size: 13px; display: none; margin-top: 4px;" id="form_email-error"></span>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                Phone Number
+            </label>
+            <input type="tel" name="phone_number" id="form_phone_number" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; transition: all 0.3s; box-sizing: border-box; font-family: 'Inter var', sans-serif;" placeholder="+91 123 456 7890 (optional)" onfocus="this.style.borderColor='#c43a30'" onblur="this.style.borderColor='#e0e0e0'">
+            <span style="color: #c43a30; font-size: 13px; display: none; margin-top: 4px;" id="form_phone_number-error"></span>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+            <button type="submit" id="formSubmitButton" style="width: 100%; padding: 14px; background: #c43a30; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(255,71,71,0.2);" onmouseover="this.style.background='#e63939'; this.style.boxShadow='0 4px 12px rgba(255,71,71,0.3)'" onmouseout="this.style.background='#c43a30'; this.style.boxShadow='0 2px 8px rgba(255,71,71,0.2)'">
+                <svg style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 6px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                <span id="formSubmitText">Submit & Download</span>
+            </button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endif %}
+
+<!-- Related Posts -->
+{% if related_posts %}
+<div class="related-posts">
+<h2>Related Articles</h2>
+<div class="related-grid">
+{% for related in related_posts %}
+<a href="{% url 'v2:blog_post' related.slug %}" class="related-card">
+<img src="{{ related.banner_image_url }}" alt="{{ related.title }}" class="related-card-image">
+<div class="related-card-content">
+<h3 class="related-card-title">{{ related.title }}</h3>
+<p class="related-card-excerpt">{{ related.excerpt|truncatewords:15 }}</p>
+</div>
+</a>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+</div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+{% if post.attachment or post.pdf_attachment_url %}
+// Show and scroll to download form
+window.scrollToDownloadForm = function() {
+    console.log('Download button clicked');
+    const formSection = document.getElementById('downloadFormSection');
+    console.log('Form section:', formSection);
+
+    if (formSection) {
+        console.log('Showing form');
+        // Show the form
+        formSection.style.display = 'block';
+
+        // Scroll to form after a brief delay to ensure display update
+        setTimeout(() => {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Focus on first input after scroll
+            setTimeout(() => {
+                const nameInput = document.getElementById('form_name');
+                if (nameInput) {
+                    nameInput.focus();
+                }
+            }, 500);
+        }, 100);
+    } else {
+        console.error('Form section not found');
+    }
+}
+
+// Handle download form submission
+const downloadForm = document.getElementById('downloadForm');
+if (downloadForm) {
+    downloadForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const submitButton = document.getElementById('formSubmitButton');
+    const submitText = document.getElementById('formSubmitText');
+    const successMessage = document.getElementById('formSuccessMessage');
+    const errorMessage = document.getElementById('formErrorMessage');
+
+    // Clear previous errors
+    document.querySelectorAll('[id^="form_"][id$="-error"]').forEach(el => {
+        el.style.display = 'none';
+        el.textContent = '';
+    });
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+
+    // Disable submit button
+    submitButton.disabled = true;
+    submitText.textContent = 'Submitting...';
+
+    try {
+        const formData = new FormData(form);
+        const response = await fetch('{% url "v2:submit_contact_form" %}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            // Show success message
+            successMessage.style.display = 'flex';
+            form.reset();
+
+            // Trigger download
+            submitText.textContent = 'Downloading...';
+            window.location.href = '{% url "v2:download_attachment" post.slug %}';
+
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                submitButton.disabled = false;
+                submitText.textContent = 'Submit & Download';
+            }, 3000);
+        } else {
+            // Show field errors
+            if (data.errors) {
+                for (const [field, errors] of Object.entries(data.errors)) {
+                    const errorElement = document.getElementById(`form_${field}-error`);
+                    if (errorElement) {
+                        errorElement.textContent = errors.join(', ');
+                        errorElement.style.display = 'block';
+                    }
+                }
+            }
+            // Show general error message
+            errorMessage.style.display = 'flex';
+
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitText.textContent = 'Submit & Download';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('formErrorText').textContent = 'An error occurred. Please try again.';
+        errorMessage.style.display = 'flex';
+
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitText.textContent = 'Submit & Download';
+    }
+    });
+}
+{% endif %}
+</script>
+{% endblock %}

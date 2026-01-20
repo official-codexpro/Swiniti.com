@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Swaniti{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+{% block extra_css %}{% endblock %}
+
+</head>
+<body>
+{% include "v2/navbar.html" %}
+
+{% block content %}{% endblock %}
+
+<!-- start footer section -->
+<footer style="background:var(--accent-color,#C43A30); color:#fff;padding-top:80px;border-top:8px solid var(--secondary-accent,#fff);font-family:'Inter var',sans-serif;">
+<div style="max-width:1200px;margin:auto;padding:0 20px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;padding-bottom:50px">
+<div><img src="{% static 'v2/logo/Swaniti-initiative-C-W-.png' %}" alt="Swaniti" style="height:105px;object-fit:contain; margin-bottom: 5%;margin-top: -20%;"><p style="font-size:14px;line-height:1.6;margin-bottom:20px">Independent research organization driving evidence-based policy and social change.</p><div style="display:flex;gap:15px"><a href="https://x.com/Swaniti" style="color:#fff;font-size:20px" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#fff'"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/company/swaniti-initiative/?viewAsMember=true" style="color:#fff;font-size:20px" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#fff'"><i class="fab fa-linkedin-in"></i></a><a href="https://www.instagram.com/swanitiglobal/" style="color:#fff;font-size:20px" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#fff'"><i class="fab fa-instagram"></i></i></a><a href="https://www.youtube.com/@Swaniti_Global" style="color:#fff;font-size:20px" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#fff'"><i class="fab fa-youtube"></i></a></div></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase">Quick Links</h3><ul style="list-style:none;padding:0;margin:0;line-height:1.8;font-size:14px"><li><a href="{% url 'v2:home' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Home</a></li><li><a href="{% url 'v2:about' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">About Us</a></li><li><a href="{% url 'v2:impact' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Impact</a></li><li><a href="/research-and-insights/" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Research</a></li><li><a href="{% url 'v2:event' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Events</a></li></ul></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase">Centers</h3><ul style="list-style:none;padding:0;margin:0;line-height:1.8;font-size:14px"><li><a href="{% url 'v2:centre_detail' 'gcdi' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">GCDI</a></li><li><a href="{% url 'v2:centre_detail' 'clefs' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">CLEFS</a></li><li><a href="{% url 'v2:centre_detail' 'centre-for-sub-national-engagement' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Sub National</a></li><li><a href="{% url 'v2:centre_detail' 'centre-for-green-livelihood' %}" style="color:#fff;text-decoration:none" onmouseover="this.style.color='#111';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Green Livelihood</a></li></ul></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase">Subscribe</h3><p style="font-size:14px;line-height:1.6;margin-bottom:12px">Stay updated with our reports, research and events.</p><div id="subscribeMessage" style="display:none;padding:10px;margin-bottom:10px;border-radius:5px;font-size:14px;font-weight:600"></div><form id="newsletterForm" style="display:flex;flex-direction:column;gap:10px">{% csrf_token %}<input type="email" id="newsletter_email" name="email" placeholder="Enter your email" required style="padding:12px 15px;border:none;border-radius:5px;font-size:14px;width:100%;outline:none;color:#333"><button type="submit" id="subscribeButton" style="padding:12px 15px;background:#fff;color:#c43a30;font-weight:700;border:none;border-radius:5px;cursor:pointer;transition:all 0.3s" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'"><span id="subscribeButtonText">Subscribe</span></button></form></div>
+</div>
+<hr style="border:none;border-top:1px solid rgba(255,255,255,.4)">
+<div style="display:flex;flex-direction:column;align-items:center;padding:20px 0;font-size:14px">
+<p style="margin:5px 0">© 2025 Swaniti Global. All rights reserved.</p>
+</div></div></footer>
+<!-- End footer section -->
+
+<!--FAQ SCRIPT FOR CENTERS {AAK} START-->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- 1. Handle FAQ Sections (GCDI & Sub-National) ---
+    // Targets: .premium-accordion-item > .accordion-trigger > .content
+    const faqTriggers = document.querySelectorAll('.accordion-trigger');
+    
+    faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const item = this.closest('.premium-accordion-item');
+            if (!item) return; // Safety check
+
+            const content = item.querySelector('.content');
+            const isOpen = item.classList.contains('active');
+
+            // Close all siblings in the same container
+            item.parentElement.querySelectorAll('.premium-accordion-item').forEach(sibling => {
+                sibling.classList.remove('active');
+                if(sibling.querySelector('.content')) {
+                    sibling.querySelector('.content').style.maxHeight = '0';
+                }
+            });
+
+            // Open clicked item
+            if (!isOpen) {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
+
+    // --- 2. Handle All Project Sections (CLEF & Green Livelihood) ---
+    // Targets: .project-item > .project-trigger > (.project-content OR .project-details)
+    const projectTriggers = document.querySelectorAll('.project-trigger');
+
+    projectTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const item = this.closest('.project-item');
+            if (!item) return;
+
+            // SMART SELECTOR: Finds either 'project-content' OR 'project-details' automatically
+            const content = item.querySelector('.project-content, .project-details');
+            if (!content) return; // Stop if no content found
+
+            const isOpen = item.classList.contains('active');
+
+            // Close all siblings
+            item.parentElement.querySelectorAll('.project-item').forEach(sibling => {
+                sibling.classList.remove('active');
+                const sibContent = sibling.querySelector('.project-content, .project-details');
+                if(sibContent) sibContent.style.maxHeight = '0';
+            });
+
+            // Open clicked item
+            if (!isOpen) {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
+});
+</script>
+<!--FAQ SCRIPT FOR CENTERS {AAK} END-->
+
+<!-- Newsletter Subscription Script -->
+<script>
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('newsletter_email').value;
+        const button = document.getElementById('subscribeButton');
+        const buttonText = document.getElementById('subscribeButtonText');
+        const message = document.getElementById('subscribeMessage');
+
+        // Disable button
+        button.disabled = true;
+        buttonText.textContent = 'Subscribing...';
+
+        try {
+            const formData = new FormData(newsletterForm);
+            const response = await fetch('{% url "v2:subscribe_newsletter" %}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Show success message
+                message.style.display = 'block';
+                message.style.background = '#d4edda';
+                message.style.color = '#155724';
+                message.textContent = data.message;
+                newsletterForm.reset();
+            } else {
+                // Show error message
+                message.style.display = 'block';
+                message.style.background = '#f8d7da';
+                message.style.color = '#721c24';
+                message.textContent = data.message;
+            }
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 5000);
+
+        } catch (error) {
+            console.error('Error:', error);
+            message.style.display = 'block';
+            message.style.background = '#f8d7da';
+            message.style.color = '#721c24';
+            message.textContent = 'An error occurred. Please try again.';
+        } finally {
+            // Re-enable button
+            button.disabled = false;
+            buttonText.textContent = 'Subscribe';
+        }
+    });
+}
+</script>
+
+
+
+{% block extra_js %}{% endblock %}
+</body>
+
+</html>

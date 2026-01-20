@@ -1,0 +1,442 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}Home - Swaniti{% endblock %}
+
+{% block content %}
+<!--start nav hero section -->
+<div class="hero" style="height:98vh;background:url('/static/v2/images/larm-rmah-AEaTUnvneik-unsplash.jpg') center/cover no-repeat;position:relative;font-family:'Inter var',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:0;"></div>
+
+  <nav id="mainNav" style="position:fixed;top:0;right:0;width:60%;background:#FFF;padding:18px 60px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(0,0,0,0.15);border-bottom-left-radius:10px;z-index:1000;transition:width .4s ease,border-radius .4s ease,justify-content .4s ease;will-change:width,transform;background-clip:padding-box;-webkit-backface-visibility:hidden;backface-visibility:hidden;">
+    <a href="/v2/" class="logo" style="margin-right:60px;text-decoration:none;color:#FF4747;font-size:24px;font-weight:700;font-family:'Inter var',sans-serif;transition:margin .4s ease;">Swaniti</a>
+    <ul id="menuLinks" style="display:flex;gap:55px;list-style:none;margin:0;padding:0;">
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;">Centers</a></li>
+      <li><a href="/v2/about/" style="text-decoration:none;color:#000;font-weight:600;">About us</a></li>
+      <li><a href="/v2/impact/" style="text-decoration:none;color:#000;font-weight:600;">Impact</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;">Research and Insights</a></li>
+    </ul>
+    <div id="toggleBtn" class="hamburger" style="display:none;font-size:30px;cursor:pointer;color:#000;z-index:1010;margin-left:40px;">☰</div>
+  </nav>
+</div>
+
+  <div class="menu-wrapper">
+    <div class="mega-menu" style="background:#FF4747;color:#FFF;">
+      <div>
+        <h2 style="font-size:32px;margin-bottom:20px;font-weight:700;font-family:'Inter var',sans-serif;">Our Work</h2>
+        <p style="max-width:400px;line-height:1.7;font-size:16px;opacity:.9;font-family:'Inter var',sans-serif;">Discover our centers of excellence and partnership opportunities driving sustainable change worldwide.</p>
+      </div>
+      <div style="display:flex;gap:80px;">
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Centres</h3>
+          <a href="/v2/centre/gcdi/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">GCDI</a>
+          <a href="/v2/centre/clefs/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">CLEFS</a>
+          <a href="/v2/centre/centre-for-sub-national-engagement/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Centre for Sub-National Engagement</a>
+          <a href="/v2/centre/centre-for-green-livelihood/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Centre for Green Livelihood</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Research & Insights</h3>
+          <a href="/v2/research-and-insights/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">All Posts</a>
+          <a href="/v2/research-and-insights/category/case-studies/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Case Studies</a>
+          <a href="/v2/research-and-insights/category/policy/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Policy</a>
+          <a href="/v2/research-and-insights/category/reports/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Reports</a>
+           <a href="/v2/research-and-insights/category/reports/" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Insight</a>
+
+        </div>
+    
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Get Involved</h3>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Volunteer With Us</a>
+          <a href="https://swaniti.zohorecruit.in/jobs/Careers" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Careers</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-text" style="position:absolute;bottom:120px;left:100px;color:#FFF;max-width:900px;z-index:10;">
+    <h1 style="font-size:55px;margin-bottom:18px;font-family:'Inter var',sans-serif;">Transforming Communities Through Evidence-Based Policy</h1>
+    <p style="font-size:18px;line-height:1.7;margin-bottom:25px;font-family:'Inter var',sans-serif;">We empower governments and communities to create lasting change through rigorous research and innovative solutions.</p>
+    <a href="/v2/impact/" style="background:#FF4747;color:#FFF;padding:14px 28px;text-decoration:none;border-radius:8px;font-weight:600;transition:.3s;display:inline-block;font-family:'Inter var',sans-serif;">Our impact</a>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+</div>
+<!--end nav hero section-->
+
+<!--Start About us section-->
+<section style="padding:100px 0;background:#fff;text-align:center;font-family:'Inter var',sans-serif;">
+<div style="max-width:800px;margin:0 auto;padding:0 20px;">
+<h2 style="color:#FF4747;font-size:26px;font-weight:700;margin-bottom:40px;letter-spacing:1.5px;text-transform:uppercase;">About Us</h2>
+<p style="font-size:19px;color:#000;line-height:1.7;margin-bottom:50px;font-weight:300;">At <strong style="font-weight:600;color:#FF4747;">Swaniti</strong>, we have a deep understanding of how to leverage <strong style="font-weight:600;color:#FF4747;">political economy</strong> to drive scalable and long-term change in <strong style="font-weight:600;color:#FF4747;">energy transition</strong>. Working globally, we operate at the intersection of <strong style="font-weight:600;color:#FF4747;">climate, governance, and community</strong> to prompt action, unlock critical resources, and build agency amongst local stakeholders.</p>
+<a href="/v2/about/" style="background:linear-gradient(90deg,#FF4747,#FFBD77);color:#fff;padding:14px 30px;text-decoration:none;text-transform:uppercase;font-size:14px;font-weight:600;border-radius:4px;transition:.3s;display:inline-block;">Learn More About Us</a>
+</div>
+</section>
+<style>@media(max-width:991px){section:nth-child(2){padding:80px 10px!important;}section:nth-child(2)p{font-size:17px!important;margin-bottom:30px!important;}}@media(max-width:600px){section:nth-child(2)h2{font-size:22px!important;}}</style>
+<!-- end about us section -->
+
+<!-- START OUR APPROACH SECTION -->
+<section style="padding:100px 20px;background:#fff;font-family:'Inter var',sans-serif;text-align:center;overflow:hidden;">
+<div style="max-width:1150px;margin:0 auto;">
+<h2 style="font-size:clamp(28px,4vw,40px);font-weight:800;color:#1a1a1a;letter-spacing:3px;margin-bottom:15px;">Our Approach</h2>
+<div style="width:90px;height:3px;background:#FF4747;margin:15px auto 60px;border-radius:2px;"></div>
+<p style="max-width:720px;margin:0 auto 70px;font-size:16px;line-height:1.8;color:#555;">Empowering lives through governance reform, clean energy transitions, and inclusive development initiatives that drive measurable impact.</p>
+
+<div class="impact-grid">
+<!-- CARD 1 -->
+<div class="flip-card-container">
+<div class="flip-card">
+<div class="card-front"><img src="https://www.pratham.org/wp-content/uploads/2024/12/3.-About-us-left-image-07.jpg"><div class="overlay"><h3>Education Access</h3></div></div>
+<div class="card-back">
+<h3>Education Access</h3>
+<p>Swaniti works with governments and civil society partners to ensure <b>quality education</b> reaches underserved communities, improving future opportunities.</p>
+<a href="#" class="btn">Learn More</a>
+</div></div></div>
+
+<!-- CARD 2 -->
+<div class="flip-card-container">
+<div class="flip-card">
+<div class="card-front"><img src="https://borgenproject.org/wp-content/uploads/Educating-children-in-India.jpg"><div class="overlay"><h3>Clean Energy</h3></div></div>
+<div class="card-back">
+<h3>Clean Energy</h3>
+<p>Advancing <b>green energy transition</b> across emerging economies by supporting policy reforms, sustainable models, and inclusive workforce engagement.</p>
+<a href="#" class="btn">Learn More</a>
+</div></div></div>
+
+<!-- CARD 3 -->
+<div class="flip-card-container">
+<div class="flip-card">
+<div class="card-front"><img src="https://smileindiatrust.org/wp-content/uploads/2022/06/15.jpg"><div class="overlay"><h3>Governance Reforms</h3></div></div>
+<div class="card-back">
+<h3>Governance Reforms</h3>
+<p>Through <b>data-driven governance</b> and evidence-based policies, we strengthen public systems and promote transparency across sectors.</p>
+<a href="#" class="btn">Learn More</a>
+</div></div></div>
+</div></div>
+
+<style>
+.impact-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
+.flip-card-container{width:320px;height:420px;perspective:1200px;position:relative;}
+.flip-card{width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1);}
+.flip-card-container:hover .flip-card{transform:rotateY(180deg);}
+.card-front,.card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:16px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.08);}
+.card-front img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.flip-card-container:hover .card-front img{transform:scale(1.1);}
+.overlay{position:absolute;bottom:0;left:0;width:100%;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);color:#fff;padding:22px;text-align:left;}
+.overlay h3{font-size:20px;margin:0;font-weight:700;}
+.card-back{background:#fff;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:35px;border:1px solid #f0f0f0;text-align:left;}
+.card-back h3{font-size:20px;color:#FF4747;font-weight:800;margin-bottom:15px;}
+.card-back p{font-size:15px;line-height:1.7;color:#555;text-align:justify;margin-bottom:25px;}
+.btn{display:inline-block;background:#FF4747;color:#fff;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:.3s;}
+.btn:hover{background:#e13a3a;box-shadow:0 4px 10px rgba(255,71,71,0.3);}
+@media(max-width:992px){.impact-grid{gap:25px;}.flip-card-container{width:90%;max-width:340px;height:400px;}}
+@media(max-width:600px){.impact-grid{flex-direction:column;align-items:center;gap:35px;}.flip-card-container{width:100%;max-width:360px;height:420px;}.card-back{padding:25px 20px;}.card-back h3{font-size:18px;}.card-back p{font-size:14px;}}
+</style>
+</section>
+
+<!-- END OUR APPROACH SECTION -->
+
+<!-- start score section here {aak} -->
+<section style="position:relative;margin:0;min-height:420px;padding:80px 0;background:url('https://www.undp.org/sites/g/files/zskgke326/files/styles/featured_content_card_mobile_343_x_150_/public/2024-12/img_9633-copy.jpg?h=0a10da1f&itok=Du77D-ab') center/cover no-repeat;color:#fff;text-align:center;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:1;"></div>
+  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 5vw;">
+    <h2 style="font-size:clamp(22px,4vw,36px);font-weight:600;margin-bottom:40px;">The Numbers Speak for Themselves</h2>
+    <div class="stats">
+      <div><h3>165Mn+</h3><p>Funds Mobilised</p></div>
+      <div class="divider"></div>
+      <div><h3>35+</h3><p>Policies Reformed</p></div>
+      <div class="divider"></div>
+      <div><h3>8+</h3><p>Global Countries</p></div>
+      <div class="divider"></div>
+      <div><h3>70+</h3><p>Global Partners</p></div>
+      <div class="divider"></div>
+      <div><h3>23+</h3><p>Ongoing Initiatives</p></div>
+    </div>
+  </div>
+
+  <style>
+    .stats{display:flex;justify-content:space-evenly;align-items:center;flex-wrap:wrap;gap:20px;margin:0;padding:0;}
+    .stats div{text-align:center;margin:0;padding:0;}
+    .stats h3{font-size:clamp(22px,3.5vw,36px);font-weight:700;margin:0 0 8px;}
+    .stats p{color:white;margin:0;font-size:15px;}
+    .divider{width:2px;height:60px;background:rgba(255,255,255,.4);}
+    @media(max-width:992px){.divider{display:none;}.stats{gap:30px;}}
+    @media(max-width:600px){.stats{flex-direction:column;gap:25px;}.stats h3{font-size:26px;}.stats p{font-size:14px;}}
+  </style>
+</section>
+
+
+<!-- end score section here -->
+
+
+<!-- start globe section {aak} -->
+<div class="working-section" style="display:flex;flex-wrap:wrap;min-height:100vh;width:100%;overflow:hidden;background:#fff;">
+  <div class="working-left" style="width:50%;padding:4rem 6rem;display:flex;align-items:center;box-sizing:border-box;z-index:10;">
+    <div style="background:#FF4747;color:#fff;padding:3rem 3rem 6rem 6rem;border-radius:.5rem;margin-left:-6rem;box-shadow:0 2px 8px rgba(0,0,0,0.1);width:100%;">
+      <h2 style="font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:1rem;">Working Area</h2>
+      <p style="max-width:30rem;line-height:1.8;font-size:1.05rem;opacity:.9;margin:0 0 2rem;">Our work focuses on supporting just energy transitions, equitable development, and sustainable governance across the globe.</p>
+      <div class="accordion-container">
+        <div class="accordion-item"><button onmouseover="focusCountry('India')" onclick="openAccordion(this)">India<span>+</span></button><div><p>Swaniti operates across 12 states, strengthening government programs and facilitating a green energy transition for state-owned enterprises. Our work ensures sustainable development and inclusive growth at the sub-national level.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Indonesia')" onclick="openAccordion(this)">Indonesia<span>+</span></button><div><p>Through a strategic partnership with Bappenas (Ministry of Planning), we actively support energy transition and decarbonization efforts. Our work focuses on policy development, capacity building, and implementing sustainable energy solutions.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('South Africa')" onclick="openAccordion(this)">South Africa<span>+</span></button><div><p>We engage in micro-planning programs across the mining belt, advancing energy transition initiatives that promote sustainable mining practices, economic diversification, and social inclusion. </p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('United States')" onclick="openAccordion(this)">United States<span>+</span></button><div><p>We collaborate with energy communities to identify and develop new economic opportunities as part of the energy transition. By supporting local stakeholders, we help ensure long-term resilience in shifting energy landscapes.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Brazil')" onclick="openAccordion(this)">Brazil<span>+</span></button><div><p>We collaborate with state government bodies to establish responsible mining practices, ensuring resource extraction aligns with environmental standards, community well-being, and long-term economic benefits. </p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Ghana')" onclick="openAccordion(this)">Ghana<span>+</span></button><div><p>Swaniti supports state and local authorities in developing governance frameworks for responsible mineral extraction. Through policy guidance, capacity building, and stakeholder engagement, we ensure that natural resources drive economic growth while upholding social equity and environmental conservation.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Nigeria')" onclick="openAccordion(this)">Nigeria<span>+</span></button><div><p>Working with government bodies, we promote sustainable mining practices that balance economic progress with environmental responsibility. We aim to transform Nigeria’s resource sector into a model for sustainable development.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="width:50%;display:flex;justify-content:center;align-items:center;overflow:hidden;">
+    <div id="chartdiv" style="width:60vw;height:60vw;max-width:900px;max-height:900px;"></div>
+  </div>
+</div>
+
+<style>
+.accordion-item{border-bottom:1px solid rgba(196, 193, 193, 0.3);}
+.accordion-item button{width:100%;text-align:left;padding:15px 0;background:none;border:none;font-size:17px;font-weight:600;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.accordion-item div{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+.accordion-item p{padding:0 0 15px;color:#fff;line-height:1.8;font-size:15px;opacity:.9;margin:0;}
+@media(max-width:992px){
+  .working-section{flex-direction:column-reverse!important;align-items:center;}
+  #chartdiv{order:1;width:100%!important;max-width:500px!important;margin:0 auto 30px!important;display:block;}
+  .working-left{order:2;width:100%!important;margin:0!important;padding:0!important;}
+  .working-left>div{margin:0!important;padding:2rem!important;border-radius:.5rem;width:100%!important;}
+}
+</style>
+
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<script>
+am4core.useTheme(am4themes_animated);
+var chart=am4core.create("chartdiv",am4maps.MapChart);
+chart.geodata=am4geodata_worldLow;chart.projection=new am4maps.projections.Orthographic();
+chart.panBehavior="rotateLongLat";chart.deltaLatitude=-20;chart.logo.disabled=true;
+
+// polygons
+var polygons=chart.series.push(new am4maps.MapPolygonSeries());
+polygons.useGeodata=true;polygons.exclude=["AQ"];
+var tpl=polygons.mapPolygons.template;
+tpl.fill=am4core.color("#d3d3d3");tpl.stroke=am4core.color("#666");tpl.strokeWidth=.7;
+tpl.tooltipText="{name}";tpl.nonScalingStroke=true;tpl.fillOpacity=1;
+tpl.events.on("over",ev=>{ev.target.fill=am4core.color("#FF4747");});
+tpl.events.on("out",ev=>{ev.target.fill=am4core.color("#d3d3d3");});
+
+// pins
+var pins=chart.series.push(new am4maps.MapImageSeries());
+pins.data=[
+  {title:"India",lat:21,long:78},
+  {title:"Indonesia",lat:-0.7893,long:113.9213},
+  {title:"South Africa",lat:-30.5595,long:22.9375},
+  {title:"United States",lat:37.0902,long:-95.7129},
+  {title:"Brazil",lat:-14.235,long:-51.9253},
+  {title:"Ghana",lat:7.9465,long:-1.0232},
+  {title:"Nigeria",lat:9.082,long:8.6753}
+];
+pins.mapImages.template.propertyFields.latitude="lat";
+pins.mapImages.template.propertyFields.longitude="long";
+pins.mapImages.template.tooltipText="{title}";
+pins.mapImages.template.nonScaling=true;
+
+var c=pins.mapImages.template.createChild(am4core.Circle);
+c.radius=6;c.fill=am4core.color("#FF4747");c.stroke=am4core.color("#fff");c.strokeWidth=2;
+var glow=new am4core.DropShadowFilter();glow.blur=8;glow.opacity=.7;glow.color=am4core.color("#FF4747");c.filters.push(glow);
+
+var o=pins.mapImages.template.createChild(am4core.Circle);
+o.radius=12;o.strokeWidth=2;o.stroke=am4core.color("#FF4747");o.fillOpacity=.15;o.strokeOpacity=.4;
+o.events.on("inited",ev=>{
+  let t=ev.target;
+  t.animate([{property:"scale",from:1,to:2},{property:"opacity",from:1,to:0}],1000,am4core.ease.circleOut)
+  .events.on("animationended",()=>{t.events.getKey("inited").func(ev);});
+});
+
+// hover pin to highlight polygon
+c.events.on("over",ev=>{highlightCountry(ev.target.dataItem.dataContext.title);});
+c.events.on("out",resetHighlight);
+
+function highlightCountry(n){
+  polygons.mapPolygons.each(p=>{p.fill=p.dataItem.dataContext.name===n?am4core.color("#FF4747"):am4core.color("#d3d3d3");});
+}
+function resetHighlight(){polygons.mapPolygons.each(p=>{p.fill=am4core.color("#d3d3d3");});}
+
+function focusCountry(name){
+  let d=pins.data.find(x=>x.title===name);
+  if(!d)return;
+  chart.animate([{property:"deltaLongitude",to:-d.long},{property:"deltaLatitude",to:-d.lat}],800,am4core.ease.sinOut);
+  highlightCountry(name);setTimeout(resetHighlight,1200);
+}
+
+// smooth auto rotation
+let anim,userInteracting=false;
+function rotate(){if(anim)anim.stop();anim=chart.animate({property:"deltaLongitude",to:chart.deltaLongitude+360},30000,am4core.ease.linear);anim.events.on("animationended",()=>{if(!userInteracting)rotate();});}
+chart.seriesContainer.events.on("down",()=>{userInteracting=true;if(anim){anim.stop();anim=null;}});
+chart.seriesContainer.events.on("up",()=>{userInteracting=false;rotate();});
+rotate();
+
+// accordion
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.accordion-item').forEach(i=>{let p=i.querySelector('div'),s=i.querySelector('span');p.style.maxHeight='0';s.textContent='+';i.dataset.open='0';});});
+function openAccordion(b){let i=b.parentElement,p=b.nextElementSibling,s=b.querySelector('span'),o=i.dataset.open==='1';document.querySelectorAll('.accordion-item').forEach(x=>{x.querySelector('div').style.maxHeight='0';x.querySelector('span').textContent='+';x.dataset.open='0';});if(!o){p.style.maxHeight=p.scrollHeight+'px';s.textContent='−';i.dataset.open='1';}}
+</script>
+<!-- end globe section -->
+
+<!-- start Research & Insights section here {aak} -->
+<section style="width:100%;margin:0;padding:100px 0;background:#fff;text-align:center;box-sizing:border-box;">
+  <div style="max-width:1400px;width:100%;padding:0 40px;box-sizing:border-box;margin:0 auto;">
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;color:#1a1a1a;margin:0 0 15px;">Research & Insights</h2>
+    <div style="width:80px;height:4px;background:#FF4747;margin:15px auto 45px;border-radius:2px;"></div>
+    <p style="max-width:750px;margin:0 auto 80px;font-size:16px;line-height:1.8;color:#555;">
+      Explore our evidence-based studies, impactful reports, and field insights that empower sustainable change and drive social transformation across communities.
+    </p>
+
+    <style>
+      @media (min-width:1201px){#insight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:35px;}}
+      @media (max-width:1200px) and (min-width:700px){#insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:35px;}}
+      @media (max-width:699px){#insight-grid{display:grid;grid-template-columns:1fr;gap:25px;}}
+      #insight-grid a svg{width:14px;height:14px;margin-left:6px;vertical-align:middle;transition:transform .3s ease;}
+      #insight-grid a:hover svg{transform:translateX(4px);}
+
+      #insight-grid p{
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+    </style>
+
+    <div id="insight-grid" style="transition:all .4s ease;">
+
+      <!-- CARD 1 -->
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.06);text-align:left;transition:all .3s ease;cursor:pointer;">
+        <div style="width:100%;height:210px;overflow:hidden;">
+          <img src="https://www.smilefoundationindia.org/wp-content/uploads/2023/03/Layer-109-1-1024x757.png" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease;">
+        </div>
+        <div style="padding:28px;">
+          <h3 style="font-size:19px;font-weight:600;color:#1a1a1a;margin:0 0 12px;">Sports Landscape and Policy in India</h3>
+          <p style="font-size:15px;line-height:1.8;color:#666;margin:0 0 18px;"> the second largest population in the world, India should have no shortage of world-class athletes—but lack of infrastructure and  limit potential.</p>
+          <a href="https://www.swaniti.com/sports-landscape-and-policy-in-india/" style="text-decoration:none;color:#fff;font-weight:600;font-size:15px;display:inline-flex;align-items:center;padding:10px 20px;background:#FF4747;border-radius:8px;">
+            Read More 
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.06);text-align:left;transition:all .3s ease;cursor:pointer;">
+        <div style="width:100%;height:210px;overflow:hidden;">
+          <img src="https://www.smilefoundationindia.org/wp-content/uploads/2022/11/Education-in-india-1024x606-1.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease;">
+        </div>
+        <div style="padding:28px;">
+          <h3 style="font-size:19px;font-weight:600;color:#1a1a1a;margin:0 0 12px;">G-20: Origin, History and Evolution</h3>
+          <p style="font-size:15px;line-height:1.8;color:#666;margin:0 0 18px;">A historical look at how the G-20 emerged to bridge dialogue between developing and developed nations and shape the global economic agenda.</p>
+          <a href="https://www.swaniti.com/g-20-origin-history-and-evolution/" style="text-decoration:none;color:#fff;font-weight:600;font-size:15px;display:inline-flex;align-items:center;padding:10px 20px;background:#FF4747;border-radius:8px;">
+            Read More 
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.06);text-align:left;transition:all .3s ease;cursor:pointer;">
+        <div style="width:100%;height:210px;overflow:hidden;">
+          <img src="https://www.give.do/blog/wp-content/uploads/2021/11/Education-top-10-blog-banner.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease;">
+        </div>
+        <div style="padding:28px;">
+          <h3 style="font-size:19px;font-weight:600;color:#1a1a1a;margin:0 0 12px;">Aspirational Districts Programme</h3>
+          <p style="font-size:15px;line-height:1.8;color:#666;margin:0 0 18px;">Launched in 2018, ADP has transformed India’s developmental framework, focusing on outcomes, competition, and inclusive growth.</p>
+          <a href="https://www.swaniti.com/aspirational-districts-programme/" style="text-decoration:none;color:#fff;font-weight:600;font-size:15px;display:inline-flex;align-items:center;padding:10px 20px;background:#FF4747;border-radius:8px;">
+            Read More 
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.06);text-align:left;transition:all .3s ease;cursor:pointer;">
+        <div style="width:100%;height:210px;overflow:hidden;">
+          <img src="https://www.smilefoundationindia.org/blog/wp-content/uploads/2022/11/Education-in-india-1024x606-1.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease;">
+        </div>
+        <div style="padding:28px;">
+          <h3 style="font-size:19px;font-weight:600;color:#1a1a1a;margin:0 0 12px;">Air Pollution, Health, and the Economy</h3>
+          <p style="font-size:15px;line-height:1.8;color:#666;margin:0 0 18px;">Air pollution remains one of the leading causes of premature deaths in India — addressing it is key to both public health and economic resilience.</p>
+          <a href="https://www.smilefoundationindia.org/wp-content/uploads/2022/11/Education-in-india-1024x606-1.jpg" style="text-decoration:none;color:#fff;font-weight:600;font-size:15px;display:inline-flex;align-items:center;padding:10px 20px;background:#FF4747;border-radius:8px;">
+            Read More 
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- end Research & Insights section -->
+
+
+
+<script>
+const hero = document.querySelector(".hero");
+
+const images = [
+  "/static/v2/images/larm-rmah-AEaTUnvneik-unsplash.jpg",
+  "/static/v2/images/glimpse.JPG",
+  "/static/v2/images/4A8B3991.JPG",
+  "/static/v2/images/aadhaar.jpg",
+  "/static/v2/images/IMG_5755.jpeg"
+];
+
+let index = 0;
+
+// --- CREATE TWO SLIDE LAYERS ---
+const slide1 = document.createElement("div");
+const slide2 = document.createElement("div");
+
+[slide1, slide2].forEach(slide => {
+  slide.style.position = "absolute";
+  slide.style.inset = "0";
+  slide.style.backgroundSize = "cover";
+  slide.style.backgroundPosition = "center";
+  slide.style.transition = "transform 1.2s ease-in-out";
+  slide.style.zIndex = "-1";
+  hero.appendChild(slide);
+});
+
+// first image
+slide1.style.backgroundImage = `url('${images[0]}')`;
+slide1.style.transform = "translateX(0%)";
+slide2.style.transform = "translateX(100%)"; // off-screen right
+
+function changeSlide() {
+  // next image
+  index = (index + 1) % images.length;
+  slide2.style.backgroundImage = `url('${images[index]}')`;
+
+  // slide both layers LEFT → RIGHT smoothly
+  slide1.style.transform = "translateX(-100%)";
+  slide2.style.transform = "translateX(0%)";
+
+  // reset layers after animation
+  setTimeout(() => {
+    // slide1 becomes new base
+    slide1.style.backgroundImage = slide2.style.backgroundImage;
+
+    // reset positions for next slide
+    slide1.style.transform = "translateX(0%)";
+    slide2.style.transform = "translateX(100%)";
+  }, 1200);
+}
+
+setInterval(changeSlide, 4500);
+</script>
+
+
+ {% endblock %}
+ 

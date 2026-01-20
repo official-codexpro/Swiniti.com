@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<section style="width: 50%%;padding:80px 8%;background:#fff;display:flex;justify-content:center;align-items:center;font-family:Poppins;">
+<form style="width:100%;max-width:430px;background:#fff;padding:40px 35px;border:1px solid #eee;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.06);display:flex;flex-direction:column;row-gap:18px;">
+    
+    <h2 style="font-size:1.9rem;font-weight:600;color:#222; margin-bottom: ;">Get the report in your mailbox</h2>
+    <p style="font-size:.95rem;color:#666;line-height:1.5;">Reports, Opinions, Events and more, personalized for you when you subscribe.</p>
+
+    <input type="text" placeholder="Name" style="padding:14px;border:1px solid #ddd;border-radius:8px;font-size:1rem;outline:none;transition:.2s;">
+    <input type="text" placeholder="Organization" style="padding:14px;border:1px solid #ddd;border-radius:8px;font-size:1rem;outline:none;transition:.2s;">
+    <input type="email" placeholder="Email address" style="padding:14px;border:1px solid #ddd;border-radius:8px;font-size:1rem;outline:none;transition:.2s;">
+
+    <button style="padding:14px;border:none;border-radius:8px;font-size:1rem;background:#4a8dff;color:#fff;cursor:pointer;transition:.3s;font-weight:500;">Download</button>
+    
+    <a href="#" style="font-size:.9rem;color:#4a8dff;margin-top:5px;display:inline-block;">View Sample</a>
+
+  </form>
+</section>
+
+</body>
+</ht

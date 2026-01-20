@@ -1,0 +1,518 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}Home - Swaniti{% endblock %}
+
+{% block content %}
+<!--start nav hero section -->
+<div class="hero" style="height:82vh;background:url('') center/cover no-repeat;position:relative;font-family:'Inter var',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:0;"></div>
+  <div class="hero-text" style="position:absolute;bottom:120px;left:100px;color:#FFF;max-width:900px;z-index:10;">
+    <h1 style="font-size:55px;margin-bottom:18px;font-family:'Inter var',sans-serif;">Building a sustainable future in a climate-constrained world.</h1>
+    <p style="font-size:18px;line-height:1.7;margin-bottom:25px;font-family:'Inter var',sans-serif;">Bridging the gap between resources and frontline implementation across the Global South.</p>
+    <a href="/impact/" style="background:#c43a30;color:#FFF;padding:14px 28px;text-decoration:none;border-radius:8px;font-weight:600;transition:.3s;display:inline-block;font-family:'Inter var',sans-serif;">Our impact</a>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+</div>
+<style>
+ .hero{margin-bottom:5%;height:82vh;position:relative;background:url('{% static 'v2/images/4A8B3991.JPG' %}') center/cover no-repeat;font-family:'Inter var',sans-serif;}
+.overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.35);}
+.hero-text{position:absolute;top:48%;left:80px;transform:translateY(-50%);max-width:620px;color:#fff;}
+.hero-text h1{font-size:38px;line-height:1.25;margin-bottom:16px;font-weight:700;}
+.hero-text p{font-size:16px;line-height:1.6;margin-bottom:20px;opacity:.95;}
+.hero-text a{background:#c43a30;color:#fff;padding:10px 20px;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;display:inline-block;transition:.3s;}
+@media(max-width:1200px){.hero-text{left:60px;max-width:75%;}.hero-text h1{font-size:34px;}.hero-text p{font-size:15px;}.hero-text a{padding:9px 18px;font-size:13px;}}
+@media(max-width:900px){.hero{height:65vh;}.hero-text{left:35px;max-width:85%;}.hero-text h1{font-size:30px;}.hero-text p{font-size:14px;}.hero-text a{padding:8px 16px;font-size:12px;}}
+@media(max-width:600px){.hero{height:90vh;}.hero-text{left:22px;max-width:90%;transform:translateY(-42%);}.hero-text h1{font-size:24px;line-height:1.3;}.hero-text p{font-size:13px;margin-bottom:18px;}.hero-text a{padding:7px 14px;font-size:11px;}}
+</style>
+<!--end nav hero section-->
+
+<!--Start About us section-->
+<section style="padding:100px 0;background:#fff;text-align:center;font-family:'Inter var',sans-serif; margin-top: -5% !important; margin-bottom: -4% !important;">
+<div style="max-width:800px;margin:0 auto;padding:0 20px;">
+<h2 style="font-size:clamp(28px,4vw,40px);font-weight:800;color:#1a1a1a;letter-spacing:3px;margin-bottom:15px;">About us</h2>
+<div style="width:90px;height:3px;background:#c43a30;margin:15px auto 60px;border-radius:2px;"></div>
+<p style="font-size:19px;color:#000;line-height:1.7;margin-bottom:50px;font-weight:300;">At <strong style="font-weight:600;color:#c43a30;">Swaniti</strong>, we have a deep understanding of how to leverage <strong style="font-weight:600;color:#c43a30;">political economy</strong> to drive scalable and long-term change in <strong style="font-weight:600;color:#c43a30;">energy transition</strong>. Working globally, we operate at the intersection of <strong style="font-weight:600;color:#c43a30;">climate, governance, and community</strong> to prompt action, unlock critical resources, and build agency amongst local stakeholders.</p>
+<a href="/about/" style="background:linear-gradient(90deg,#c43a30,#ff7637);color:#fff;padding:14px 30px;text-decoration:none;text-transform:uppercase;font-size:14px;font-weight:600;border-radius:4px;transition:.3s;display:inline-block;">Learn More About Us</a>
+</div>
+</section>
+<style>@media(max-width:991px){section:nth-child(2){padding:80px 10px!important;}section:nth-child(2)p{font-size:17px!important;margin-bottom:30px!important;}}@media(max-width:600px){section:nth-child(2)h2{font-size:22px!important;}}</style>
+<!-- end about us section -->
+
+<!-- START OUR APPROACH SECTION -->
+<section style="padding:100px 20px;background:#fff;font-family:'Inter var',sans-serif;text-align:center;overflow:hidden;">
+<div style="max-width:1150px;margin:0 auto;">
+<h2 style="font-size:clamp(28px,4vw,40px);font-weight:800;color:#1a1a1a;letter-spacing:3px;margin-bottom:15px;">Our Approach</h2>
+<div style="width:90px;height:3px;background:#c43a30;margin:15px auto 60px;border-radius:2px;"></div>
+<p style="max-width:720px;margin:0 auto 70px;font-size:16px;line-height:1.8;color:#555;">We accelerate the clean energy transition by building robust governance delivery mechanisms and ensuring every initiative is rooted in inclusive development.</p>
+
+<div class="impact-grid">
+<!-- CARD 1 -->
+<div class="flip-card-container">
+<div class="flip-card">
+<div class="card-front"><img src="/media/event_gallery/Swanitifacilitated.jpg"><div class="overlay"><h3>Systemic reforms</h3></div></div>
+<div class="card-back">
+<h3>Systemic reforms</h3>
+<p>Our work is rooted in strengthening how programs are designed and delivered so that systems evolve to address challenges more effectively over time.</p>
+<a href="#" class="btn">Learn More</a>
+</div></div></div>
+
+<!-- CARD 2 -->
+<div class="flip-card-container">
+<div class="flip-card">
+<div class="card-front"><img src="/media/event_gallery/willingness_to_action.jpeg"><div class="overlay"><h3>Willingness to action</h3></div></div>
+<div class="card-back">
+<h3>Willingness to action</h3>
+<p>While several political economy leaders are keen to enable large scale sustainable energy transition we ensure that the public resources to do so support this thought.</p>
+<a href="#" class="btn">Learn More</a>
+</div></div></div>
+
+<!-- CARD 3 -->
+<div class="flip-card-container">
+<div class="flip-card">
+<div class="card-front"><img src="/media/event_gallery/Reimagining Solutions.jpeg"><div class="overlay"><h3>Reimagining Solutions</h3></div></div>
+<div class="card-back">
+<h3>Reimagining Solutions</h3>
+<p>We take a whole-of-society approach to identify innovative, cross-cutting pathways for large-scale energy transition, recognizing that lasting change requires action across institutions, markets, and communities.</p>
+<a href="#" class="btn">Learn More</a>
+</div></div></div>
+</div></div>
+
+<style>
+.impact-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
+.flip-card-container{width:320px;height:420px;perspective:1200px;position:relative;}
+.flip-card{width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1);}
+.flip-card-container:hover .flip-card{transform:rotateY(180deg);}
+.card-front,.card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:16px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.08);}
+.card-front img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.flip-card-container:hover .card-front img{transform:scale(1.1);}
+.overlay{position:absolute;bottom:0;left:0;width:100%;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);color:#fff;padding:22px;text-align:left;}
+.overlay h3{font-size:20px;margin:0;font-weight:700;}
+.card-back{background:#fff;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:35px;border:1px solid #f0f0f0;text-align:left;}
+.card-back h3{font-size:20px;color:#c43a30;font-weight:800;margin-bottom:15px;}
+.card-back p{font-size:15px;line-height:1.7;color:#555;text-align:justify;margin-bottom:25px;}
+.btn{display:inline-block;background:#c43a30;color:#fff;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:.3s;}
+.btn:hover{background:#e13a3a;box-shadow:0 4px 10px rgba(255,71,71,0.3);}
+@media(max-width:992px){.impact-grid{gap:25px;}.flip-card-container{width:90%;max-width:340px;height:400px;}}
+@media(max-width:600px){.impact-grid{flex-direction:column;align-items:center;gap:35px;}.flip-card-container{width:100%;max-width:360px;height:420px;}.card-back{padding:25px 20px;}.card-back h3{font-size:18px;}.card-back p{font-size:14px;}}
+</style>
+</section>
+
+<!-- END OUR APPROACH SECTION -->
+
+<!-- start score section here {aak} -->
+<section style="position:relative;margin:0;min-height:420px;padding:80px 0;background:url('https://www.undp.org/sites/g/files/zskgke326/files/styles/featured_content_card_mobile_343_x_150_/public/2024-12/img_9633-copy.jpg?h=0a10da1f&itok=Du77D-ab') center/cover no-repeat;color:#fff;text-align:center;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:1;"></div>
+  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 5vw;">
+    <h2 style="font-size:clamp(22px,4vw,36px);font-weight:600;margin-bottom:40px;">Our Impact</h2>
+    <div class="stats">
+      <div><h3>₹165Mn+</h3><p>Funds Mobilised</p></div>
+      <div class="divider"></div>
+      <div><h3>35+</h3><p>Policies Reformed</p></div>
+      <div class="divider"></div>
+      <div><h3>7+</h3><p>Global Countries</p></div>
+      <div class="divider"></div>
+      <div><h3>70+</h3><p>Global Partners</p></div>
+      <div class="divider"></div>
+      <div><h3>23+</h3><p>Ongoing Initiatives</p></div>
+    </div>
+  </div>
+  <style>
+    .stats{display:flex;justify-content:space-evenly;align-items:center;flex-wrap:wrap;gap:20px;margin:0;padding:0;}
+    .stats div{text-align:center;margin:0;padding:0;}
+    .stats h3{font-size:clamp(22px,3.5vw,36px);font-weight:700;margin:0 0 8px;}
+    .stats p{color:white;margin:0;font-size:15px;}
+    .divider{width:2px;height:60px;background:rgba(255,255,255,.4);}
+    @media(max-width:992px){.divider{display:none;}.stats{gap:30px;}}
+    @media(max-width:600px){.stats{flex-direction:column;gap:25px;}.stats h3{font-size:26px;}.stats p{font-size:14px;}}
+  </style>
+</section>
+
+<!-- end score section here -->
+
+
+<!-- start globe section {aak} -->
+<div class="working-section" style="display:flex;flex-wrap:wrap;min-height:100vh;width:100%;background:#fff; font-family: sans-serif;">
+  <div class="working-left" style="width:50%;padding:4rem 6rem;display:flex;align-items:center;box-sizing:border-box;z-index:10;">
+    <div style="background:#c43a30;color:#fff;padding:3rem 3rem 6rem 6rem;border-radius:.5rem;margin-left:-6rem;box-shadow:0 2px 8px rgba(0,0,0,0.1);width:100%;">
+      <h2 style="font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:1rem;">Geographies</h2>
+      <p style="max-width:30rem;line-height:1.8;font-size:1.05rem;opacity:.9;margin:0 0 2rem;">Our work focuses on supporting just energy transitions, equitable development, and sustainable governance across the globe.</p>
+
+       <div class="accordion-container">
+        <div class="accordion-item"><button onmouseover="focusCountry('India')" onclick="openAcc(this)">India<span>+</span></button><div><p>   Swaniti works across more than 12 states in India, partnering with government departments and public sector institutions to strengthen social welfare delivery, advance clean energy adoption, and improve climate resilience. Our work spans green skilling initiatives in Andhra Pradesh, strengthening DISCOM operations in Assam, and supporting industrial decarbonization in Rajasthan and Uttar Pradesh. We also support coal-impacted regions through just transition planning, helping diversify local economies and ensure inclusive, sustainable development at the sub-national level.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Indonesia')" onclick="openAcc(this)">Indonesia<span>+</span></button><div><p>  Swaniti provides policy research, technical support, and capacity building to advance Indonesia’s energy transition roadmap. Our work includes designing decarbonization strategies, supporting renewable energy integration, and helping ensure that communities dependent on fossil-fuel industries experience a fair and equitable transition.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('South Africa')" onclick="openAcc(this)">South Africa<span>+</span></button><div><p>     In South Africa Swaniti supports local and regional authorities in planning community-centered energy transitions. Our work focuses on sustainable mining, workforce reskilling, and economic diversification for coal-dependent regions—ensuring social inclusion and long-term climate resilience.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('United States')" onclick="openAcc(this)">United States<span>+</span></button><div><p> Swaniti, through Prosper America, collaborates with energy communities across the United States to identify emerging economic opportunities, working with local stakeholders, policymakers, and community groups to build strategies for job creation, industry diversification, and long-term regional resilience.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Brazil')" onclick="openAcc(this)">Brazil<span>+</span></button><div><p>      In Brazil, Swaniti partners with state institutions to strengthen governance in the mining sector. We contribute to establishing responsible mining practices, improving regulatory frameworks, and ensuring that extraction activities align with environmental protection, Indigenous rights, community welfare, and sustainable economic growth.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Ghana')" onclick="openAcc(this)">Ghana<span>+</span></button><div><p>      Swaniti supports national and local authorities in Ghana to enhance governance and transparency in mineral resource management. Our efforts focus on policy formulation, capacity development, and stakeholder coordination so that natural resource extraction leads to equitable development, environmental conservation, and long-term economic stability.</p></div></div>
+        <div class="accordion-item"><button onmouseover="focusCountry('Nigeria')" onclick="openAcc(this)">Nigeria<span>+</span></button><div><p>      In Nigeria, Swaniti works with government agencies to promote sustainable mining practices that balance economic growth with ecological responsibility. Our programs strengthen regulatory mechanisms, enhance community engagement, and support economic diversification to help transform the mineral sector into a model for climate-conscious development.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="width:50%;display:flex;justify-content:center;align-items:center;">
+    <div id="chartdiv" style="width:60vw;height:60vw;max-width:900px;max-height:900px;"></div>
+  </div>
+</div>
+
+<style>
+.accordion-item{border-bottom:1px solid rgba(196,193,193,.3);}
+.accordion-item button{width:100%;text-align:left;padding:15px 0;background:none;border:none;font-size:17px;font-weight:600;color:#fff;cursor:pointer;display:flex;justify-content:space-between;}
+.accordion-item div{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+.accordion-item p{padding:0 0 15px;color:#fff;line-height:1.8;font-size:15px;opacity:.9;margin:0;}
+
+@media(max-width:992px){
+  .working-section{flex-direction:column-reverse!important;}
+  #chartdiv{width:100%!important;max-width:500px!important;margin:0 auto 30px!important;}
+  .working-left{width:100%!important;padding:0!important;}
+  .working-left>div{margin:0!important;padding:2rem!important;width:100%!important;}
+}
+</style>
+
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldIndiaLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script>
+am4core.useTheme(am4themes_animated);
+
+var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+// FIX: Set geodata to the India-specific world map
+chart.geodata = am4geodata_worldIndiaLow;
+
+chart.projection = new am4maps.projections.Orthographic();
+chart.panBehavior = "rotateLongLat";
+chart.deltaLatitude = -20;
+chart.logo.disabled = true;
+
+// POLYGONS
+var polygons = chart.series.push(new am4maps.MapPolygonSeries());
+polygons.useGeodata = true;
+polygons.exclude = ["AQ"];
+
+var tpl = polygons.mapPolygons.template;
+tpl.fill = am4core.color("#d3d3d3");
+tpl.stroke = am4core.color("#666");
+tpl.strokeWidth = .7;
+tpl.tooltipText = "{name}";
+tpl.nonScalingStroke = true;
+
+// Hover State
+var hs = tpl.states.create("hover");
+hs.properties.fill = am4core.color("#c43a30");
+
+// PINS (Corrected center for India)
+var pins = chart.series.push(new am4maps.MapImageSeries());
+pins.data = [
+  {title:"India", lat:22.5937, long:78.9629},
+  {title:"Indonesia", lat:-0.7893, long:113.9213},
+  {title:"South Africa", lat:-30.5595, long:22.9375},
+  {title:"United States", lat:37.0902, long:-95.7129},
+  {title:"Brazil", lat:-14.235, long:-51.9253},
+  {title:"Ghana", lat:7.9465, long:-1.0232},
+  {title:"Nigeria", lat:9.082, long:8.6753}
+];
+
+pins.mapImages.template.propertyFields.latitude = "lat";
+pins.mapImages.template.propertyFields.longitude = "long";
+pins.mapImages.template.tooltipText = "{title}";
+pins.mapImages.template.nonScaling = true;
+
+var c = pins.mapImages.template.createChild(am4core.Circle);
+c.radius = 6;
+c.fill = am4core.color("#c43a30");
+c.stroke = am4core.color("#fff");
+c.strokeWidth = 2;
+
+var o = pins.mapImages.template.createChild(am4core.Circle);
+o.radius = 12; o.strokeWidth = 2; o.stroke = am4core.color("#c43a30");
+o.fillOpacity = .15; o.strokeOpacity = .4;
+o.events.on("inited", ev => {
+  let t = ev.target;
+  t.animate([{property:"scale",from:1,to:2},{property:"opacity",from:1,to:0}], 1000)
+   .events.on("animationended", () => { t.events.getKey("inited").func(ev); });
+});
+
+// FUNCTIONS
+function highlightCountry(n) {
+  polygons.mapPolygons.each(p => {
+    if (p.dataItem.dataContext.name === n) {
+      p.isHover = true;
+    } else {
+      p.isHover = false;
+    }
+  });
+}
+
+function resetHighlight() {
+  polygons.mapPolygons.each(p => { p.isHover = false; });
+}
+
+function focusCountry(name) {
+  let d = pins.data.find(x => x.title === name);
+  if (!d) return;
+  chart.animate([
+    { property: "deltaLongitude", to: -d.long },
+    { property: "deltaLatitude", to: -d.lat }
+  ], 1200, am4core.ease.quadOut);
+  highlightCountry(name);
+  setTimeout(resetHighlight, 2000);
+}
+
+// ROTATION
+let anim, userInteracting = false;
+function rotate() {
+  if (anim) anim.stop();
+  anim = chart.animate({ property: "deltaLongitude", to: chart.deltaLongitude + 360 }, 50000, am4core.ease.linear);
+  anim.events.on("animationended", () => { if (!userInteracting) rotate(); });
+}
+chart.seriesContainer.events.on("down", () => { userInteracting = true; if (anim) anim.stop(); });
+chart.seriesContainer.events.on("up", () => { userInteracting = false; rotate(); });
+rotate();
+
+// ACCORDION
+function openAcc(b) {
+  let i = b.parentElement, p = b.nextElementSibling, s = b.querySelector('span'), o = i.dataset.open === '1';
+  document.querySelectorAll('.accordion-item').forEach(x => {
+    x.querySelector('div').style.maxHeight = '0';
+    x.querySelector('span').textContent = '+';
+    x.dataset.open = '0';
+  });
+  if (!o) {
+    p.style.maxHeight = p.scrollHeight + 'px';
+    s.textContent = '−';
+    i.dataset.open = '1';
+  }
+}
+</script>
+<!-- end globe section -->
+
+<!-- start Research & Insights section here {aak} -->
+<section style="width:100%;margin:0;padding:100px 0;background:#fff;text-align:center;box-sizing:border-box;">
+  <div style="max-width:1400px;width:100%;padding:0 40px;box-sizing:border-box;margin:0 auto;">
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;color:#1a1a1a;margin:0 0 15px;">Research & Insights</h2>
+    <div style="width:80px;height:4px;background:#c43a30;margin:15px auto 45px;border-radius:2px;"></div>
+    <p style="max-width:750px;margin:0 auto 80px;font-size:16px;line-height:1.8;color:#555;">
+      Explore our evidence-based studies, impactful reports, and field insights that empower sustainable change and drive social transformation across communities.
+    </p>
+
+    <style>
+      @media (min-width:1201px){#insight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:35px;align-items:stretch;}}
+      @media (max-width:1200px) and (min-width:700px){#insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:35px;align-items:stretch;}}
+      @media (max-width:699px){#insight-grid{display:grid;grid-template-columns:1fr;gap:25px;}}
+
+      #insight-grid > div{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+      }
+
+      #insight-grid > div > div:last-child{
+        display:flex;
+        flex-direction:column;
+        flex:1;
+      }
+
+      #insight-grid > div > div:last-child > p{
+        flex:1;
+      }
+
+      #insight-grid a svg{width:14px;height:14px;margin-left:6px;vertical-align:middle;transition:transform .3s ease;}
+      #insight-grid a:hover svg{transform:translateX(4px);}
+
+      #insight-grid p{
+        display:-webkit-box;
+        -webkit-line-clamp:4;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+      }
+
+    </style>
+
+    <div id="insight-grid" style="transition:all .4s ease;">
+      {% for post in latest_posts %}
+      <!-- Blog Post Card -->
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.06);text-align:left;transition:all .3s ease;cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.06)'">
+        <div style="width:100%;height:210px;overflow:hidden;">
+          <img src="{{ post.banner_image_url }}" alt="{{ post.title }}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="padding:28px;">
+          {% if post.category %}
+          <span style="display:inline-block;padding:4px 12px;background:#FFF5F5;color:#c43a30;font-size:12px;font-weight:600;border-radius:20px;margin-bottom:12px;">{{ post.category.name }}</span>
+          {% endif %}
+          <h3 style="font-size:19px;font-weight:600;color:#1a1a1a;margin:0 0 12px;">{{ post.title }}</h3>
+          <p style="font-size:15px;line-height:1.8;color:#666;margin:0 0 18px;">{{ post.excerpt|truncatewords:20 }}</p>
+          <a href="{% url 'v2:blog_post' post.slug %}" style="text-decoration:none;color:#fff;font-weight:600;font-size:15px;display:inline-flex;align-items:center;padding:10px 20px;background:#c43a30;border-radius:8px;transition:all 0.3s;" onmouseover="this.style.background='#e63939'" onmouseout="this.style.background='#c43a30'">
+            Read More
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      {% empty %}
+      <!-- No Posts Message -->
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:#666;">
+        <p style="font-size:18px;">No blog posts available at the moment. Check back soon!</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- end Research & Insights section -->
+
+
+
+
+<!--nev scritp for scroll bar {aak} start-->
+<script>
+(function () {
+  const hero = document.querySelector(".hero");
+  if (!hero) return console.warn("Slider script: .hero not found");
+
+  // CONFIG
+  const images = [
+    "/static/v2/images/glimpse.JPG",
+    "/static/v2/images/4A8B3991.JPG",
+    "/static/v2/images/SWANITIAIR.jpg",
+    "/static/v2/images/aadhaar.jpg",
+    "/static/v2/images/1729243494872.jpg",
+    "/static/v2/images/1725437771783.jpg",
+    "/static/v2/images/IMG_5755.jpeg"
+  ];
+  const slideDuration = 1000;   // ms transition duration
+  const gap = 3200;             // ms between slide starts (total cycle ~ gap)
+  const easing = "cubic-bezier(.2,.9,.2,1)";
+
+  // safety setup
+  hero.style.position = hero.style.position || "relative";
+  hero.style.overflow = "hidden";
+  // ensure overlay/content remain above slides if they have inline styles
+  Array.from(hero.children).forEach(child => {
+    const s = child.getAttribute && child.getAttribute("style") || "";
+    if (s.includes("background:rgba") || s.includes("overlay") || child.className.includes("overlay")) {
+      child.style.position = child.style.position || "relative";
+      child.style.zIndex = 3;
+    }
+    if (child.className && child.className.includes("hero-content")) {
+      child.style.position = child.style.position || "relative";
+      child.style.zIndex = 4;
+    }
+  });
+
+  // PRELOAD
+  images.forEach(src => { const i = new Image(); i.src = src; });
+
+  // container for slides (placed under content)
+  const container = document.createElement("div");
+  container.style.position = "absolute";
+  container.style.inset = "0";
+  container.style.zIndex = 1;
+  container.style.pointerEvents = "none";
+  hero.insertBefore(container, hero.firstChild);
+
+  // create two slide layers
+  let a = document.createElement("div");
+  let b = document.createElement("div");
+  [a, b].forEach(slide => {
+    slide.style.position = "absolute";
+    slide.style.inset = "0";
+    slide.style.backgroundSize = "cover";
+    slide.style.backgroundPosition = "center";
+    slide.style.willChange = "transform";
+    slide.style.transform = "translateX(100%)";
+    container.appendChild(slide);
+  });
+
+  // state
+  let current = 0;                 // index of visible image in "a"
+  let next = 1 % images.length;    // index for b initially
+  let isAnimating = false;
+
+  // initial images and positions: a = visible center, b = offscreen right
+  a.style.backgroundImage = `url('${images[current]}')`;
+  a.style.transform = "translateX(0%)";
+  b.style.backgroundImage = `url('${images[next]}')`;
+  b.style.transform = "translateX(100%)";
+
+  // ensure transitions are applied only when needed
+  function doSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    // set transitions
+    a.style.transition = `transform ${slideDuration}ms ${easing}`;
+    b.style.transition = `transform ${slideDuration}ms ${easing}`;
+
+    // move a LEFT, move b to CENTER (RIGHT -> LEFT motion)
+    requestAnimationFrame(() => {
+      a.style.transform = "translateX(-100%)";
+      b.style.transform = "translateX(0%)";
+    });
+
+    // wait for b's transitionend (robust)
+    const onEnd = (ev) => {
+      if (ev.propertyName !== "transform") return;
+      b.removeEventListener("transitionend", onEnd);
+
+      // swap DOM references (we keep DOM nodes but swap vars)
+      const temp = a;
+      a = b;
+      b = temp;
+
+      // compute next indices
+      current = (current + 1) % images.length;
+      next = (current + 1) % images.length;
+
+      // prepare off-screen right slide (b) instantly for next round
+      b.style.transition = "none";
+      b.style.transform = "translateX(100%)";
+      // set next background image
+      b.style.backgroundImage = `url('${images[next]}')`;
+
+      // small forced reflow to ensure future transitions work
+      // eslint-disable-next-line no-unused-expressions
+      b.offsetHeight;
+
+      // clear transitions on the now-visible slide (a) so it stays centered until next animate
+      a.style.transition = "none";
+      a.style.transform = "translateX(0%)";
+
+      // ready for next
+      isAnimating = false;
+    };
+
+    b.addEventListener("transitionend", onEnd);
+  }
+
+  // start automatic loop
+  const timer = setInterval(doSlide, gap);
+
+  // expose controls (optional)
+  hero._slider = {
+    next: () => doSlide(),
+    stop: () => clearInterval(timer),
+    start: (newGap) => {
+      if (newGap) {
+        clearInterval(timer);
+        setInterval(doSlide, newGap);
+      }
+    }
+  };
+
+  // in some rare edge-cases transitionend may not fire, fallback safety:
+  // if isAnimating stays true longer than slideDuration + 200ms, force reset
+  setInterval(() => {
+    if (isAnimating) {
+      // no-op: rely on normal flow; we keep this as safety if something hung
+    }
+  }, slideDuration + 500);
+
+})();
+</script>
+<!--nev scritp for scroll bar {aak} end-->
+
+ {% endblock %}
+ 
